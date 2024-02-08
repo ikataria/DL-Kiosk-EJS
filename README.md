@@ -11,3 +11,16 @@ Acknowledgments Thanks to the creators of EJS, Node.js, Express, and MongoDB for
 Contact For any inquiries, please contact Mohit Kataria at 17kataria@gmail.com
 
 Happy coding!
+
+
+<----------------------------------------------------------- Pic credit ----------------------------------------------------------------->
+
+Driver hero:  Image by <a href="https://www.freepik.com/free-photo/person-taking-driver-s-license-exam_34085647.htm#query=drive%20test&position=13&from_view=keyword&track=ais&uuid=05f9191a-ba8b-43f7-871c-ccc84028133a#position=13&query=drive%20test">Freepik</a>
+
+Admin hero: Image by <a href="https://pixabay.com/users/devexcelsure-23904551/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6874065">devexcelsure</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6874065">Pixabay</a>
+
+Examiner hero: Image by <a href="https://pixabay.com/users/harinathr-1906917/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1516644">Harinath R</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1516644">Pixabay</a>
+
+Jeep Icon: <a target="_blank" href="https://icons8.com/icon/uaVDZ5KgsqpE/jeep">Jeep</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Maple Leaf: <a href="https://www.freepik.com/free-vector/beautiful-watercolor-autumn-leaf_2722869.htm#query=maple%20leaf%20logo%20png&position=9&from_view=search&track=ais&uuid=159e14a0-51b6-4b2c-b947-30caec14cb40">Image by Sketchepedia</a> on Freepik
