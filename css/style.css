@@ -1,3 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Nunito&display=swap");
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+
 img {
     display: block;
+    max-width: 100%;
+    height: auto;
 }
+
+/* || VARIABLES */
+:root{
+    /* FONTS */
+    --FF: "Nunito", sans-serif;
+    --FF-HEADINGS: "Roboto", cursive;
+
+    /* COLOR */
+    --FORM-HEADING-COLOR: aliceblue;
+
+    /* FONT-SIZES */
+    --FORM-LABEL-SIZE: 25px; 
+}
+
+.main__hero{
+    background-color: antiquewhite;
+    background-image: url(../views/img/driver_hero_1500x1000.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* || FORMs */
+.form{
+    border-bottom: 2px solid black;
+    padding: 20px;
+    background-color: hsla(0, 0%, 0%, 0.527);
+}
+
+/* .form{
+    border-bottom: 2px solid black;
+    padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: hsla(0, 0%, 0%, 0.527);
+}
+
+.form h3{
+    font-family: var(--FF);
+    color: var(--FORM-HEADING-COLOR);
+    margin-bottom: 10px;
+}
+
+.form__login{
+    width: 60%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.form__p{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.form__label{
+    font-size: var(--FORM-LABEL-SIZE);
+    color: var(--FORM-HEADING-COLOR);
+}
+.form__input{
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.form__button{
+    text-align: center;
+} */

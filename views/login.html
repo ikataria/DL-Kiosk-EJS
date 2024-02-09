@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Mohit Kataria" />
     <title>DriveTest Home</title>
-    <link rel="icon" href="/views/img/mankeyLOGO.png" />
+    <link rel="icon" href="/views/img/iconJeep.png" />
+    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
     <!-- Header -->
     <header class="header">
       <section class="header__logo">
-        <a href="/">
+        <a href="./index.html">
           <h1 class="header__logo__h1">DriveTest</h1>    <!-- HomePage -->
         </a>
         <button class="menu__button">
@@ -21,18 +22,18 @@
       
       <nav class="header__nav">
         <ul class="header__ul">
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Create Appointment</a></li>  <!-- Admin Panel -->
-            <li><a href="#">Driver Results</a></li>      <!-- Admin Panel -->
-            <li><a href="#">Book Appointment</a></li>    <!-- Driver Panel -->
-            <li><a href="#">Driver Details</a></li>      <!-- Driver Panel -->
-            <li><a href="#">Examiner</a></li>            <!-- Examiner Panel -->
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./createAppointment.html">Create Appointment</a></li>  <!-- Admin Panel -->
+            <li><a href="./driverResult.html">Driver Results</a></li>      <!-- Admin Panel -->
+            <li><a href="./bookAppointment.html">Book Appointment</a></li>    <!-- Driver Panel -->
+            <li><a href="./driverDetails.html">Driver Details</a></li>      <!-- Driver Panel -->
+            <li><a href="./examiner.html">Examiner</a></li>            <!-- Examiner Panel -->
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./logout.html">Logout</a></li>
         </ul>
       </nav>
 
-      <section class="header__pg__label">
+      <section class="header__pglabel">
         <h3>DriverTest is open</h3>
       </section>
     </header>
@@ -40,9 +41,21 @@
     <!-- Main -->
     <main class="main">
         <article class="main__hero">
-            <section class="hero">
-              <img src="" alt="" width="" height="">
-            </section>
+          <section class="form">
+            <h3>Login form</h3>
+            <form action="https://httpbin.org/post" class="form__login">
+              <p class="form__p">
+                <label class="form__label" for="email">Email</label>
+                <input class="form__input" type="email" name="email" placeholder="Your email address">
+              </p>
+              <p class="form__p">
+                <label class="form__label" for="email">Password</label>
+                <input class="form__input" type="password" name="password" placeholder="Your password">
+              </p>
+              <button class="form__button" type="submit">Login</button>
+              <button class="form__button" type="reset">Clear</button>
+            </form>
+          </section>
         </article>
     </main>
 
@@ -84,7 +97,7 @@
 
       <article class="footer__label">
         <figure class="footer__label__img">
-          <img src="" alt="" width="" height="">
+          <img src="./img/mapleLeaf.png" alt="maple_leaf" width="5000" height="5000">
         </figure>
 
         <span class="footer__label__copyright">
