@@ -6,6 +6,7 @@
     <meta name="author" content="Mohit Kataria" />
     <title>DriveTest Home</title>
     <link rel="icon" href="/views/img/iconJeep.png" />
+    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
     <!-- Header -->
@@ -40,25 +41,24 @@
     <!-- Main -->
     <main class="main">
         <article class="main__hero">
-            <section class="hero">
-              <img src="./img/driver_hero_1500x1000.jpg" alt="" width="1500" height="1000">
-            </section>
-        </article>
-        <article class="main__vehicles">
-          <section class="main__vehicles__types">
-            <img src="./img/carPic.png" alt="car_pic" width="640" height="320">
-            <h4>Cars</h4>
-            <p>Driver examination and licensing requirements for cars, vans, and small trucks...</p>
-          </section>
-          <section class="main__vehicles__types">
-            <img src="./img/motorcycle-4090327_640.png" alt="bike_pic" width="640" height="369">
-            <h4>Motocycles</h4>
-            <p>Driver examination and licensing requirements for motocycles, scooters, and mopeds...</p>
-          </section>
-          <section class="main__vehicles__types">
-            <img src="./img/truck.png" alt="truck_pic" width="640" height="320">
-            <h4>Commercial</h4>
-            <p>Driver examination and licensing requirements for classes A, B, C, D, E, F, or Z(trucks & buses)...</p>
+          <section class="form">
+            <h3>Login</h3>
+            <form action="https://httpbin.org/post" class="form__login">
+              <p class="form__p">
+                <label class="form__label" for="email">Email</label>
+                <input class="form__input" type="email" name="email" placeholder="name@email.com">
+              </p>
+              <p class="form__p">
+                <label class="form__label" for="password">Password</label>
+                <input class="form__input" type="password" name="password" placeholder="password">
+              </p>
+              <p class="form__p">
+                <label class="form__label" for="confirmPassword">Confirm Password</label>
+                <input class="form__input" type="text" name="confirmPassword" placeholder="retype password ">
+              </p>
+              <button class="form__button" type="submit">Register</button>
+              <button class="form__button" type="reset">Clear</button>
+            </form>
           </section>
         </article>
     </main>

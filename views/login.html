@@ -42,19 +42,23 @@
     <main class="main">
         <article class="main__hero">
           <section class="form">
-            <h3>Login form</h3>
+            <h3>Login</h3>
             <form action="https://httpbin.org/post" class="form__login">
               <p class="form__p">
                 <label class="form__label" for="email">Email</label>
-                <input class="form__input" type="email" name="email" placeholder="Your email address">
+                <input class="form__input" type="email" name="email" placeholder="name@email.com">
               </p>
               <p class="form__p">
-                <label class="form__label" for="email">Password</label>
-                <input class="form__input" type="password" name="password" placeholder="Your password">
+                <label class="form__label" for="password">Password</label>
+                <input class="form__input" type="password" name="password" placeholder="password">
               </p>
               <button class="form__button" type="submit">Login</button>
               <button class="form__button" type="reset">Clear</button>
             </form>
+
+            <p class="form__p">
+                <a href="./register.html">Don't have an account? Create One!</a>
+            </p>
           </section>
         </article>
     </main>
