@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Nunito&display=swap");
 
+/* || RESET */
 *{
     padding: 0;
     margin: 0;
@@ -13,6 +14,7 @@ img {
     height: auto;
 }
 
+
 /* || VARIABLES */
 :root{
     /* FONTS */
@@ -22,14 +24,90 @@ img {
     /* COLOR */
     --FORM-HEADING-COLOR: aliceblue;
     --FORM-TEXT-COLOR: aliceblue;
+    --BG-LIGHT-COLOR: #fff;
 
     /* FONT-SIZES */
     --FORM-LABEL-SIZE: 25px; 
 }
 
-/* || NAV */
+/* || UTILITIES */
+.darkShadeOnHero{
+    background-color: hsla(0, 0%, 0%, 0.642);
+}
+
+h3, p{
+    letter-spacing: 1px;
+}
+
+/* || LINKS */
+a:any-link{
+    text-decoration: none;
+    color: #003479;
+}
+
+a:hover{
+    color: blue;
+}
+
+li{
+    list-style: none;
+}
+
+
+/* || HEADER */
+/* Hamburger Menu is not implemented yet*/
+.header{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+
+    background-color: var(--BG-LIGHT-COLOR);
+    color: #003479;
+    border: 2px solid black;
+    padding: 1.5rem 3.5rem;
+}
+
+.header__logo{
+    width: 25%;
+}
+
+.header__nav{
+    width: 75%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header__ul{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.header__ul li{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.8rem;
+}
+
+.header__logo img{
+    width: 100%;
+    height: auto;
+}
 
 /* || MAIN */
+.main__newsBanner{
+    background-color: #003479;
+    color: #fff;
+}
+
+.main__newsBanner h3{
+    text-align: center;
+    font-size: 15.9572px;
+    text-transform: uppercase;
+    padding: 1rem 0;
+}
+
 .main__hero{
     background-color: antiquewhite;
     background-image: url(../views/img/driver_hero_1500x1000.jpg);
@@ -37,11 +115,29 @@ img {
     background-size: cover;
 }
 
+.main__hero_info_container{
+    padding: 3rem 1.2rem 1.2rem;
+}   
+
+.main__hero_info{
+    padding: 3rem 1.2rem 1.2rem;
+    color: white;
+} 
+
+.main__hero_info h3{
+    font-size: 27px;
+    margin-bottom: 1rem;
+} 
+
+.main__hero_info p{
+    margin-bottom: 1rem;
+} 
+
 /* || FORMs */
 .form{
     border-bottom: 2px solid black;
     padding: 20px;
-    background-color: hsla(0, 0%, 0%, 0.642);
+    
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
