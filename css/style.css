@@ -25,9 +25,15 @@ img {
     --FORM-HEADING-COLOR: aliceblue;
     --FORM-TEXT-COLOR: aliceblue;
     --BG-LIGHT-COLOR: #fff;
+    --BG-DARK-COLOR: #003479;
+    --TEXT-LIGHT-COLOR: #fff;
+    --TEXT-DARK-COLOR: #000;
 
     /* FONT-SIZES */
-    --FORM-LABEL-SIZE: 25px; 
+    --FORM-LABEL-SIZE: 25px;
+
+    /* MARGINS & PADDINGS */
+    --TEXT-GAP: 1rem;
 }
 
 /* || UTILITIES */
@@ -42,7 +48,7 @@ h3, p{
 /* || LINKS */
 a:any-link{
     text-decoration: none;
-    color: #003479;
+    color: var(--BG-DARK-COLOR);
 }
 
 a:hover{
@@ -62,7 +68,7 @@ li{
     flex-flow: row wrap;
 
     background-color: var(--BG-LIGHT-COLOR);
-    color: #003479;
+    color: var(--BG-DARK-COLOR);
     border: 2px solid black;
     padding: 1.5rem 3.5rem;
 }
@@ -97,7 +103,7 @@ li{
 
 /* || MAIN */
 .main__newsBanner{
-    background-color: #003479;
+    background-color: var(--BG-DARK-COLOR);
     color: #fff;
 }
 
@@ -180,4 +186,78 @@ li{
 .form__p{
     color: var(--FORM-TEXT-COLOR);
     text-shadow: 2px 2px 5px rgb(133, 132, 132);
+}
+
+/* || FOOTER */
+.footer{
+    /* border: 2px solid red; */
+}
+
+.footer__tags{
+    display: flex;
+    justify-content: space-between;
+
+    background-color: var(--BG-DARK-COLOR);
+    color: var(--TEXT-LIGHT-COLOR);
+    padding: 3.5rem 3.5rem;
+
+    /* border: 2px solid gold; */
+}
+
+.footer__tags__list a{
+    color: var(--TEXT-LIGHT-COLOR);
+}
+
+.footer__tags__list h3{
+    text-transform: uppercase;
+    padding-bottom: var(--TEXT-GAP);
+}
+
+.footer__label{
+    display: flex;
+    justify-content: space-between;
+
+    padding: 1.5rem 3.5rem;
+}
+
+.footer__label__copyright{
+    /* background: red; */
+    padding-top: 2rem;
+}
+
+.footer__label__img{
+    width: 40%;
+}
+
+.footer__label__img img{
+    width: 25%;
+    height: auto;
+}
+
+
+
+/* || MEDIA QUERIES */
+@media only screen and (max-width: 767px) {
+    /* || FOOTER */
+    .footer{
+        display: none;
+        /* border: 2px solid rgb(0, 234, 255); */
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* || MAIN */
+    .main__hero_info_container{
+        padding: 3rem 6rem 1.2rem 1.2rem ;
+    }
+
+    /* || FOOTER */
+    .footer{
+        /* border: 2px solid rgb(255, 149, 0); */
+    }
+
+    .footer__tags__list p{
+        text-decoration: underline;
+        padding-bottom: 0.2rem;
+    }
 }
