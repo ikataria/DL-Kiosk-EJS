@@ -102,6 +102,11 @@ li{
 }
 
 /* || MAIN */
+.main{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 .main__newsBanner{
     background-color: var(--BG-DARK-COLOR);
     color: #fff;
@@ -121,6 +126,8 @@ li{
     background-size: cover;
 }
 
+/* Index.html MAIN  */
+
 .main__hero_info_container{
     padding: 3rem 1.2rem 1.2rem;
 }   
@@ -137,7 +144,33 @@ li{
 
 .main__hero_info p{
     margin-bottom: 1rem;
-} 
+}
+
+.main__vehicles{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 3.5rem 3.5rem;
+}
+
+.main__vehicles__types{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding: 1rem;
+}
+
+.main__vehicles__types img{
+    width: 55%;
+    height: auto;
+    padding-bottom: 1rem;
+}
+
+.main__vehicles__types h4{
+    padding-bottom: 1rem;
+
+}
+
 
 /* || FORMs */
 .form{
@@ -189,10 +222,6 @@ li{
 }
 
 /* || FOOTER */
-.footer{
-    /* border: 2px solid red; */
-}
-
 .footer__tags{
     display: flex;
     justify-content: space-between;
@@ -230,7 +259,7 @@ li{
 }
 
 .footer__label__img img{
-    width: 25%;
+    width: 15%;
     height: auto;
 }
 
@@ -248,14 +277,10 @@ li{
 @media only screen and (min-width: 768px) {
     /* || MAIN */
     .main__hero_info_container{
-        padding: 3rem 6rem 1.2rem 1.2rem ;
+        padding: 3.5rem 12rem 3.5rem 3.5rem ;
     }
 
     /* || FOOTER */
-    .footer{
-        /* border: 2px solid rgb(255, 149, 0); */
-    }
-
     .footer__tags__list p{
         text-decoration: underline;
         padding-bottom: 0.2rem;
