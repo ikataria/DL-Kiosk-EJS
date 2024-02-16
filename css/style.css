@@ -22,13 +22,14 @@ img {
     --FF-HEADINGS: "Roboto", cursive;
 
     /* COLOR */
-    --FORM-HEADING-COLOR: aliceblue;
-    --FORM-TEXT-COLOR: aliceblue;
+    --FORM-HEADING-COLOR: #003479;
+    --FORM-TEXT-COLOR: #003479;
     --BG-LIGHT-COLOR: #fff;
     --BG-DARK-COLOR: #003479;
     --TEXT-LIGHT-COLOR: #fff;
     --TEXT-DARK-COLOR: #000;
     --HEADING-DARK-COLOR: #2676ab;
+    --BUTTON-BG-COLOR: aliceblue;
 
     /* FONT-SIZES */
     --FORM-LABEL-SIZE: 25px;
@@ -229,6 +230,7 @@ li{
 }
 
 
+
 /* || FORMs */
 .form{
     border-bottom: 2px solid black;
@@ -260,14 +262,14 @@ li{
     border-radius: 10px;
     padding: .7rem;
     font-size: 1rem;
-    color: var(--FORM-TEXT-COLOR);
-    background-color: #1E8349;
+    color: var(--BUTTON-BG-COLOR);
+    background-color:  var(--FORM-TEXT-COLOR);
     font-weight: 700;
 }
 
 .form__button:hover{
-    color: #1E8349;
-    background-color: var(--FORM-TEXT-COLOR);
+    color: var(--FORM-TEXT-COLOR);
+    background-color: var(--BUTTON-BG-COLOR);
 }
 
 .form h3{
@@ -280,7 +282,7 @@ li{
 
 .form__p{
     color: var(--FORM-TEXT-COLOR);
-    text-shadow: 2px 2px 5px rgb(133, 132, 132);
+    text-shadow: 2px 2px 5px rgb(43, 74, 105);
 }
 
 .form__p a{
@@ -358,6 +360,17 @@ li{
 
     .main__content_column h4{
         font-size: 24px;
+    }
+
+    /* Book Appointment styling */
+    .main__noBgForm_column{
+        display: flex;
+        flex-flow: row wrap; 
+        justify-content: space-between;
+    }
+
+    .main__noBgForm_column_child{
+        width: 45%;
     }
 
     /* || FOOTER */
