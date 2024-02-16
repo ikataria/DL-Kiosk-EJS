@@ -5,7 +5,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Roboto";
+    font-family: "Roboto", cursive;;
 }
 
 img {
@@ -28,12 +28,15 @@ img {
     --BG-DARK-COLOR: #003479;
     --TEXT-LIGHT-COLOR: #fff;
     --TEXT-DARK-COLOR: #000;
+    --HEADING-DARK-COLOR: #2676ab;
 
     /* FONT-SIZES */
     --FORM-LABEL-SIZE: 25px;
 
     /* MARGINS & PADDINGS */
     --TEXT-GAP: 1rem;
+    --CONTAINER-PADDING-TB: 3.5rem;
+    --CONTAINER-PADDING-SIDES: 3.5rem;
 }
 
 /* || UTILITIES */
@@ -43,6 +46,10 @@ img {
 
 h3, p{
     letter-spacing: 1px;
+}
+
+.source_reference{
+    font-size: 9px;
 }
 
 /* || LINKS */
@@ -69,7 +76,7 @@ li{
 
     background-color: var(--BG-LIGHT-COLOR);
     color: var(--BG-DARK-COLOR);
-    border: 2px solid black;
+    /* border: 2px solid black; */
     padding: 1.5rem 3.5rem;
 }
 
@@ -126,8 +133,14 @@ li{
     background-size: cover;
 }
 
-/* Index.html MAIN  */
+.main__hero_services{
+    background-color: antiquewhite;
+    background-image: url(../views/img/Service_heroPage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+/* Index.html MAIN  */
 .main__hero_info_container{
     padding: 3rem 1.2rem 1.2rem;
 }   
@@ -168,7 +181,51 @@ li{
 
 .main__vehicles__types h4{
     padding-bottom: 1rem;
+}
 
+/* Main body CONTENT styling */
+.main__content{
+    display: flex;
+    flex-flow: column nowrap;
+
+    padding: var(--CONTAINER-PADDING-TB) var(--CONTAINER-PADDING-SIDES);
+}
+
+.main__content_column{
+    padding: var(--TEXT-GAP);
+}
+
+.main__content_column h3, h4{
+    color: var(--HEADING-DARK-COLOR);
+    padding-bottom: var(--TEXT-GAP);
+}
+
+.main__content_column h4{
+    font-weight: 300;
+}
+
+.main__content_column p{
+    padding-bottom: var(--TEXT-GAP);
+    line-height: 1.6
+}
+
+.main__content_column_inner{
+    display: flex;
+    flex-flow: row nowrap; 
+    justify-content: space-between;
+}
+
+.main__content_column_inner_img_div{
+    width: 25%;
+}
+
+.main__content_column_inner_p{
+    width: 70%;
+}
+
+.main__content_column_inner_img{
+    width: 100%;
+    height: auto;
 }
 
 
@@ -204,8 +261,13 @@ li{
     padding: .7rem;
     font-size: 1rem;
     color: var(--FORM-TEXT-COLOR);
-    background-color: gray;
+    background-color: #1E8349;
     font-weight: 700;
+}
+
+.form__button:hover{
+    color: #1E8349;
+    background-color: var(--FORM-TEXT-COLOR);
 }
 
 .form h3{
@@ -219,6 +281,16 @@ li{
 .form__p{
     color: var(--FORM-TEXT-COLOR);
     text-shadow: 2px 2px 5px rgb(133, 132, 132);
+}
+
+.form__p a{
+    color: var(--FORM-TEXT-COLOR);
+    text-decoration: underline;
+}
+
+.form__p a:hover{
+    color: rgb(255, 0, 21);
+    text-decoration: none;
 }
 
 /* || FOOTER */
@@ -278,6 +350,14 @@ li{
     /* || MAIN */
     .main__hero_info_container{
         padding: 3.5rem 12rem 3.5rem 3.5rem ;
+    }
+
+    .main__content_column h3{
+        font-size: 36px;
+    }
+
+    .main__content_column h4{
+        font-size: 24px;
     }
 
     /* || FOOTER */

@@ -24,3 +24,8 @@ Examiner hero: Image by <a href="https://pixabay.com/users/harinathr-1906917/?ut
 Jeep Icon: <a target="_blank" href="https://icons8.com/icon/uaVDZ5KgsqpE/jeep">Jeep</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 Maple Leaf: <a href="https://www.freepik.com/free-vector/beautiful-watercolor-autumn-leaf_2722869.htm#query=maple%20leaf%20logo%20png&position=9&from_view=search&track=ais&uuid=159e14a0-51b6-4b2c-b947-30caec14cb40">Image by Sketchepedia</a> on Freepik
+
+Photo Id pic: Image by <a href="https://www.freepik.com/free-photo/top-view-green-card-application_30589009.htm#query=government%20id&position=8&from_view=search&track=ais&uuid=3ad7745e-8e0e-477d-ab21-2d1c9d6a48c9">Freepik</a>
+
+
+Index hero: <a href="https://www.freepik.com/free-photo/woman-male-driving-instructor-during-driving-test_34305491.htm#page=2&position=10&from_view=collections&uuid=cf4b2671-a404-41fd-a3fc-fbf3fb39d074">Image by pikisuperstar</a> on Freepik
