@@ -45,15 +45,23 @@ img {
     background-color: hsla(0, 0%, 0%, 0.642);
 }
 
-h3, p{
-    letter-spacing: 1px;
+.containerPaddingAllSides{
+    padding: var(--CONTAINER-PADDING-SIDES);
+}
+
+.containerPaddingSides{
+    padding: 0 var(--CONTAINER-PADDING-SIDES);
 }
 
 .source_reference{
     font-size: 9px;
 }
 
-/* || LINKS */
+.highlightTextOnDarkBG{
+    color:rgb(255, 0, 21)
+}
+
+/* || LINKS, PARA, HEADINGS*/
 a:any-link{
     text-decoration: none;
     color: var(--BG-DARK-COLOR);
@@ -65,6 +73,14 @@ a:hover{
 
 li{
     list-style: none;
+}
+
+h3, p{
+    letter-spacing: 1px;
+}
+
+.containerHover:hover{
+    background-color: hsla(0, 0%, 50%, 0.29);
 }
 
 
@@ -137,6 +153,20 @@ li{
 .main__hero_services{
     background-color: antiquewhite;
     background-image: url(../views/img/Service_heroPage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.examiner__hero{
+    background-color: antiquewhite;
+    background-image: url(../views/img/Examiner_hero_1920x1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.admin__hero{
+    background-color: antiquewhite;
+    background-image: url(../views/img/Admin_her0_1920x1272.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -229,11 +259,74 @@ li{
     height: auto;
 }
 
+/* Data listing for Examiner & Admin*/
+.main__driversEvaluation{
+    padding: var(--CONTAINER-PADDING-SIDES);
+}
+
+.main__driversEvaluation_examClass{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 0 0 3.5rem 0;
+}
+
+.main__driversEvaluation_examClass_dd{
+    width: 60%;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px;   
+}
+
+.main__driversEvaluation_examClass button{
+    width: 25%;
+}
+
+.main__driversEvaluation_dataList ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.main__admin{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.main__admin_taskHeading{
+    font-size: var(--FORM-LABEL-SIZE);
+    width: 40%;
+}
+
+.main__admin_appointment_section{
+    width: 50%;
+}
+
+.main__admin_appointment{
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 var(--CONTAINER-PADDING-SIDES);
+    align-items: stretch;
+    width: 100%;
+}
+
+.main__admin_appointment p{
+    padding-bottom: var(--CONTAINER-PADDING-TB);
+}
+
+.main__admin_calender{
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
 
 
-/* || FORMs */
+/* FORMs */
 .form{
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
     padding: 20px;
     
     display: flex;
@@ -294,6 +387,8 @@ li{
     color: rgb(255, 0, 21);
     text-decoration: none;
 }
+
+
 
 /* || FOOTER */
 .footer__tags{

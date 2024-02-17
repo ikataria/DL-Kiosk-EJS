@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Mohit Kataria" />
-    <title>DriveTest Home</title>
+    <title>Create Appointment</title>
     <link rel="icon" href="/views/img/iconJeep.png" />
     <link rel="stylesheet" href="../css/style.css">
-
   </head>
   <body>
     <!-- Header -->
@@ -25,41 +24,35 @@
         <ul class="header__ul">
             <li><a href="./services.html">Services</a></li>
             <li><a href="./createAppointment.html">Create Appointment</a></li>  <!-- Admin Panel -->
-            <li><a href="./driverResult.html">Driver Results</a></li>      <!-- Admin Panel -->
+            <li><a href="./adminHome.html">Admin-Home</a></li>      <!-- Admin Panel -->
+            <li><a href="./adminDriversList.html">Admin-Drivers List</a></li>      <!-- Admin Panel -->
             <li><a href="./bookAppointment.html">Book Appointment</a></li>    <!-- Driver Panel -->
             <li><a href="./driverDetails.html">Driver Details</a></li>      <!-- Driver Panel -->
-            <li><a href="./examiner.html">Examiner</a></li>            <!-- Examiner Panel -->
+            <li><a href="./examinerHome.html">Examiner-Home</a></li>            <!-- Examiner Panel -->
+            <li><a href="./examinerEvaluationPage.html">Examiner</a></li>            <!-- Examiner Panel -->
             <li><a href="./login.html">Login</a></li>
             <li><a href="./logout.html">Logout</a></li>
         </ul>
       </nav>
     </header>
-
+    
     <!-- Main -->
     <main class="main">
         <article class="main__newsBanner">
-          <h3>DriveTest is open for business</h3>
+          <h3>Admin Dashboard</h3>
         </article>
-        <article class="main__hero">
-            <section class="hero">
-              <img src="./img/driver_hero_1500x1000.jpg" alt="" width="1500" height="1000">
-            </section>
-        </article>
-        <article class="main__vehicles">
-          <section class="main__vehicles__types">
-            <img src="./img/carPic.png" alt="car_pic" width="640" height="320">
-            <h4>Cars</h4>
-            <p>Driver examination and licensing requirements for cars, vans, and small trucks...</p>
+
+        <article class="main__admin containerPaddingAllSides">
+          <section class="main__admin_taskHeading">
+            <h3>Appointment Page</h3>
           </section>
-          <section class="main__vehicles__types">
-            <img src="./img/motorcycle-4090327_640.png" alt="bike_pic" width="640" height="369">
-            <h4>Motocycles</h4>
-            <p>Driver examination and licensing requirements for motocycles, scooters, and mopeds...</p>
-          </section>
-          <section class="main__vehicles__types">
-            <img src="./img/truck.png" alt="truck_pic" width="640" height="320">
-            <h4>Commercial</h4>
-            <p>Driver examination and licensing requirements for classes A, B, C, D, E, F, or Z(trucks & buses)...</p>
+          <section class="main__admin_appointment_section">
+            <form class="main__admin_appointment" action="">
+              <p>
+                <input type="date" name="appointmentDate" class="main__admin_calender containerHover" required>
+              </p>
+              <button class="form__button" type="submit">Create Slot(s)</button>
+            </form>
           </section>
         </article>
     </main>

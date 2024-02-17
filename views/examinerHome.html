@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Mohit Kataria" />
-    <title>DriveTest Home</title>
+    <title>Examiner Home - DriveTest</title>
     <link rel="icon" href="/views/img/iconJeep.png" />
     <link rel="stylesheet" href="../css/style.css">
-
   </head>
   <body>
     <!-- Header -->
@@ -23,40 +22,37 @@
       
       <nav class="header__nav">
         <ul class="header__ul">
-            <!-- <li><a href="./services.html">Services</a></li> -->
+            <li><a href="./services.html">Services</a></li>
             <li><a href="./createAppointment.html">Create Appointment</a></li>  <!-- Admin Panel -->
-            <li><a href="./driverResult.html">Driver Results</a></li>      <!-- Admin Panel -->
+            <li><a href="./adminHome.html">Admin-Home</a></li>      <!-- Admin Panel -->
+            <li><a href="./adminDriversList.html">Admin-Drivers List</a></li>      <!-- Admin Panel -->
             <li><a href="./bookAppointment.html">Book Appointment</a></li>    <!-- Driver Panel -->
             <li><a href="./driverDetails.html">Driver Details</a></li>      <!-- Driver Panel -->
-            <li><a href="./examiner.html">Examiner</a></li>            <!-- Examiner Panel -->
-            <!-- <li><a href="./login.html">Login</a></li>
-            <li><a href="./logout.html">Logout</a></li> -->
+            <li><a href="./examinerHome.html">Examiner-Home</a></li>            <!-- Examiner Panel -->
+            <li><a href="./examinerEvaluationPage.html">Examiner</a></li>            <!-- Examiner Panel -->
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./logout.html">Logout</a></li>
         </ul>
       </nav>
     </header>
-
+    
     <!-- Main -->
     <main class="main">
-        <article class="main__hero">
-            <section class="hero">
-              <img src="./img/driver_hero_1500x1000.jpg" alt="" width="1500" height="1000">
-            </section>
+        <article class="main__newsBanner">
+          <h3>Examiner Dashboard</h3>
         </article>
-        <article class="main__vehicles">
-          <section class="main__vehicles__types">
-            <img src="./img/carPic.png" alt="car_pic" width="640" height="320">
-            <h4>Cars</h4>
-            <p>Driver examination and licensing requirements for cars, vans, and small trucks...</p>
-          </section>
-          <section class="main__vehicles__types">
-            <img src="./img/motorcycle-4090327_640.png" alt="bike_pic" width="640" height="369">
-            <h4>Motocycles</h4>
-            <p>Driver examination and licensing requirements for motocycles, scooters, and mopeds...</p>
-          </section>
-          <section class="main__vehicles__types">
-            <img src="./img/truck.png" alt="truck_pic" width="640" height="320">
-            <h4>Commercial</h4>
-            <p>Driver examination and licensing requirements for classes A, B, C, D, E, F, or Z(trucks & buses)...</p>
+        <article class="examiner__hero">
+          <section class="main__hero_info_container">
+            <section class="main__hero_info darkShadeOnHero">
+              <h3>DriveTest <span class="highlightTextOnDarkBG">Examiner</span> Dashboard</h3>
+              <p>Welcome to the DriveTest Examiner Dashboard, your comprehensive tool for managing driving tests efficiently and effectively. DriveTest is licensed by the Government of Ontario. Our intuitive interface is designed to streamline your workflow and enhance your ability to assess candidates' driving skills accurately. Here's an overview of the features you'll find on our dashboard:</p>
+              <p><strong>Scheduled Tests:</strong> View a detailed schedule of upcoming driving tests, including date, time, candidate information, and test type. Stay organized and prepared for each appointment with this convenient overview.</p>
+              <p> <strong>Candidate Profiles:</strong> Access detailed profiles of each candidate, including personal information, previous test history, and any special accommodations or notes. Get a comprehensive understanding of each individual's background before conducting the test.</p>
+              <p> <strong>Test Results:</strong> Record and track test results effortlessly. Input scores for various driving maneuvers and behaviors, including parallel parking, lane changes, and adherence to traffic rules. Our dashboard automatically calculates overall performance and provides detailed feedback for candidates.</p>
+              <p> <strong>Evaluation Criteria:</strong> Refer to our standardized evaluation criteria to ensure consistency and fairness in assessing driving skills. From vehicle control to hazard awareness, our predefined criteria cover all essential aspects of safe and proficient driving.</p>
+              <a href="./examinerEvaluationPage.html"><button class="form__button">Evaluate Now</button></a>
+            </section>
+            <p class="source_reference">Image by <a href="https://pixabay.com/users/harinathr-1906917/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1516644">Harinath R</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1516644">Pixabay</a></p>
           </section>
         </article>
     </main>
