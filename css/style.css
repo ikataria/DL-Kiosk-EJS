@@ -33,11 +33,13 @@ img {
 
     /* FONT-SIZES */
     --FORM-LABEL-SIZE: 25px;
+    --FORM-LABEL-SIZE-SMALLSCREEN: 20px;
 
     /* MARGINS & PADDINGS */
     --TEXT-GAP: 1rem;
     --CONTAINER-PADDING-TB: 3.5rem;
     --CONTAINER-PADDING-SIDES: 3.5rem;
+    --CONTAINER-PADDING-SMALLSCREEN: 2.0rem;
 }
 
 /* || UTILITIES */
@@ -59,6 +61,10 @@ img {
 
 .highlightTextOnDarkBG{
     color:rgb(255, 0, 21)
+}
+
+.centerText{
+    text-align: center;
 }
 
 /* || LINKS, PARA, HEADINGS*/
@@ -290,22 +296,23 @@ h3, p{
     font-weight: 600;
 }
 
+/* Create Appointments styling */
 .main__admin{
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    flex-flow: column wrap;
+    padding: var(--CONTAINER-PADDING-SMALLSCREEN);
 }
 
 .main__admin_taskHeading{
-    font-size: var(--FORM-LABEL-SIZE);
-    width: 40%;
+    font-size: var(--FORM-LABEL-SIZE-SMALLSCREEN);
+    padding-bottom: var(--CONTAINER-PADDING-SMALLSCREEN);
 }
 
 .main__admin_appointment_section{
-    width: 50%;
+    /* width: 100%; */
 }
 
-.main__admin_appointment{
+.main__admin_appointment__form{
     display: flex;
     flex-flow: column nowrap;
     padding: 0 var(--CONTAINER-PADDING-SIDES);
@@ -314,15 +321,27 @@ h3, p{
 }
 
 .main__admin_appointment p{
-    padding-bottom: var(--CONTAINER-PADDING-TB);
+    padding-bottom: var(--CONTAINER-PADDING-SMALLSCREEN);
 }
 
-.main__admin_calender{
+.main__admin_appointment_calender{
     padding: 10px;
     border-radius: 5px;
     width: 100%;
 }
 
+.slots{
+    padding-bottom: 1rem;
+}
+.slots__button{
+    border-radius: 10px;
+    padding: .5rem;
+    font-size: 0.7rem;
+    color: var(--BUTTON-BG-COLOR);
+    background-color:  var(--FORM-TEXT-COLOR);
+    font-weight: 300;
+    margin: 2px;
+}
 
 /* FORMs */
 .form{
@@ -467,6 +486,54 @@ h3, p{
     .main__noBgForm_column_child{
         width: 45%;
     }
+
+  /* Create Appointments styling */
+.main__admin{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.main__admin_taskHeading{
+    font-size: var(--FORM-LABEL-SIZE);
+    width: 40%;
+}
+
+.main__admin_appointment{
+    width: 50%;
+}
+
+.main__admin_appointment__form{
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 var(--CONTAINER-PADDING-SIDES);
+    align-items: stretch;
+    width: 100%;
+}
+
+.main__admin_appointment p{
+    padding-bottom: var(--CONTAINER-PADDING-TB);
+}
+
+.main__admin_appointment_calender{
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.slots{
+    padding-bottom: 1rem;
+}
+.slots__button{
+    border-radius: 10px;
+    padding: .5rem;
+    font-size: 0.7rem;
+    color: var(--BUTTON-BG-COLOR);
+    background-color:  var(--FORM-TEXT-COLOR);
+    font-weight: 300;
+    margin: 2px;
+}
+
 
     /* || FOOTER */
     .footer__tags__list p{
