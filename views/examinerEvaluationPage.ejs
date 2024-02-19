@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Head Tag -->
+    <%- include("layouts/header") %>
+    <title>Driver's Evaluation</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <%- include("layouts/navbar") %>
+    
+    <!-- Main -->
+    <main class="main">
+        <article class="main__newsBanner">
+          <h3>Examiner Dashboard</h3>
+        </article>
+
+        <article class="containerPaddingAllSides">
+          <section>
+            <form class="main__driversEvaluation_examClass" action="">
+              <select name="examClass" id="examClass" class="main__driversEvaluation_examClass_dd containerHover" required>
+                <option value="" disabled selected hidden>Select Exam Class</option>
+                <option value="g2">G2</option>
+                <option value="g">G</option>
+              </select>
+              <button class="form__button">Get Drivers List</button>
+            </form>
+          </section>
+
+          <section class="main__driversEvaluation_dataList">
+            <ul>
+              <li>Date</li>
+              <li>Time</li>
+              <li>Exam</li>
+              <li>Name</li>
+              <li>Car Details</li>
+              <li>Plate Number</li>
+              <li>Passed</li>
+              <li>Evaluate Driver</li>
+            </ul>
+          </section>
+        </article>
+
+
+    </main>
+
+    <!-- Footer -->
+    <%- include("layouts/footer") %>
+
+  </body>
+</html>

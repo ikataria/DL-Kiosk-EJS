@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <!-- Head Tag -->
+    <%- include("layouts/header") %>
+    <title>DriveTest Home</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <%- include("layouts/navbar") %>
+    
+    <!-- Main -->
+    <main class="main">
+        <article class="main__newsBanner">
+          <h3>DriveTest is open for business</h3>
+        </article>
+        <article class="main__hero">
+          <section class="main__hero_info_container">
+            <section class="main__hero_info darkShadeOnHero">
+              <h3>DriveTest: Licensed by the Government of Ontario</h3>
+              <p>DriveTest Centres offer driver licensing and examination services, such as knowledge tests and road tests, on behalf of the Ministry of Transportation (MTO).</p>
+              <p>Join the line for inside services at the Brampton and Metro East DriveTest Centres from anywhere using our new remote check in system.</p>
+              <p>Please visit our News page for more information and a list of inside services. Please note that road test applicants cannot check in for their road test using the remote check in system.</p>
+              <p>To manage website traffic and provide a fair, first-in-first-out road test appointment booking experience, we use virtual queue technology.</p>
+              <button class="form__button">Book a road test</button>
+            </section>
+          <p class="source_reference">Image by <a href="https://www.freepik.com/free-photo/woman-male-driving-instructor-during-driving-test_34305491.htm#page=2&position=10&from_view=collections&uuid=cf4b2671-a404-41fd-a3fc-fbf3fb39d074">Freepik</a></p>
+          </section>
+        </article>
+        <article class="main__vehicles">
+          <section class="main__vehicles__types containerHover">
+            <a href="./services.html">
+              <img src="./img/carPic.png" alt="car_pic" width="640" height="320">
+              <h4>Cars</h4>
+              <p>Driver examination and licensing requirements for cars, vans, and small trucks...</p>
+            </a>
+          </section>
+          <section class="main__vehicles__types containerHover">
+            <a href="./services.html">
+              <img src="./img/motorcycle-4090327_640.png" alt="bike_pic" width="640" height="320">
+              <h4>Motocycles</h4>
+              <p>Driver examination and licensing requirements for motocycles, scooters, and mopeds...</p>
+            </a>
+          </section>
+          <section class="main__vehicles__types containerHover">
+            <a href="./services.html">
+              <img src="./img/truck.png" alt="truck_pic" width="640" height="320">
+              <h4>Commercial</h4>
+              <p>Driver examination and licensing requirements for classes A, B, C, D, E, F, or Z(trucks & buses)...</p>
+            </a>
+          </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <%- include("layouts/footer") %>
+  </body>
+</html>

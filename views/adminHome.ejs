@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Head Tag -->
+    <%- include("layouts/header") %>
+    <title>Admin Home</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <%- include("layouts/navbar") %>
+    
+    <!-- Main -->
+    <main class="main">
+        <article class="main__newsBanner">
+          <h3>Admin Dashboard</h3>
+        </article>
+        <article class="admin__hero">
+          <section class="main__hero_info_container">
+            <section class="main__hero_info darkShadeOnHero">
+              <h3>DriveTest <span class="highlightTextOnDarkBG">Admin</span> Dashboard</h3>
+              <p>Welcome to DriveTest Administration, At DriveTest, we are committed to ensuring road safety and proficiency in driving across all regions. As an essential part of the transportation sector, we play a pivotal role in evaluating and licensing drivers, contributing to safer roads for everyone. Our administrative team works diligently to facilitate the testing process, manage appointments, and uphold the standards of excellence that DriveTest is known for. Services we provide:</p>
+              <p><strong>Driver Testing and Licensing:</strong>  We conduct various types of driver examinations, including written tests, vision screenings, and road tests, to assess applicants' knowledge and skills according to regulatory standards.</p>
+              <p><strong>Appointment Scheduling:</strong> Our efficient scheduling system allows applicants to book appointments for tests conveniently, ensuring smooth operations and minimizing wait times.</p>
+              <p><strong>Test Administration:</strong>With a team of experienced examiners and administrators, we ensure that each test is conducted fairly, accurately, and in compliance with established protocols.</p>
+              <p><strong>Documentation and Record Keeping:</strong> We maintain meticulous records of all tests, results, and licensing transactions, providing a reliable database for regulatory purposes and ensuring the integrity of the licensing process.</p>
+              <a href="./createAppointment.html"><button class="form__button">Create Appointments</button></a>
+            </section>
+            <p class="source_reference">Image by <a href="https://pixabay.com/users/devexcelsure-23904551/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6874065">devexcelsure</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6874065">Pixabay</a></p>
+          </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <%- include("layouts/footer") %>
+  </body>
+</html>

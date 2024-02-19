@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Head Tag -->
+    <%- include("layouts/header") %>
+    <title>Login - DriveTest</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <%- include("layouts/navbar") %>
+    
+    <!-- Main -->
+    <main class="main">
+        <article class="main__newsBanner">
+          <h3>DriveTest is open for business</h3>
+        </article>
+        <article class="main__hero">
+          <section class="form darkShadeOnHero">
+            <h3>Login</h3>
+            <form action="https://httpbin.org/post" class="form__login">
+              <p class="form__p">
+                <label class="form__label" for="email">Email</label>
+                <input class="form__input" type="email" name="email" placeholder="name@email.com">
+              </p>
+              <p class="form__p">
+                <label class="form__label" for="password">Password</label>
+                <input class="form__input" type="password" name="password" placeholder="password">
+              </p>
+              <button class="form__button" type="submit">Login</button>
+              <button class="form__button" type="reset">Clear</button>
+            </form>
+
+            <p class="form__p">
+                <a href="/auth/register">Don't have an account? Create One!</a>
+            </p>
+          </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <%- include("layouts/footer") %>
+  </body>
+</html>
