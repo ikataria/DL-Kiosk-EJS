@@ -151,28 +151,28 @@ h3, p{
 
 .main__hero{
     background-color: antiquewhite;
-    background-image: url(../views/img/driver_hero_1500x1000.jpg);
+    background-image: url(../assets/img/driver_hero_1500x1000.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .main__hero_services{
     background-color: antiquewhite;
-    background-image: url(../views/img/Service_heroPage.jpg);
+    background-image: url(../assets/img/Service_heroPage.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .examiner__hero{
     background-color: antiquewhite;
-    background-image: url(../views/img/Examiner_hero_1920x1280.jpg);
+    background-image: url(../assets/img/Examiner_hero_1920x1280.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .admin__hero{
     background-color: antiquewhite;
-    background-image: url(../views/img/Admin_her0_1920x1272.jpg);
+    background-image: url(../assets/img/Admin_her0_1920x1272.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
