@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const expressSession = require('express-session');
 const ejs = require('ejs');
+
 const app = express();
 
 // Controllers
@@ -20,7 +22,6 @@ const adminCreateAppointment = require('./controller/adminCreateAppointment');
 // APIs
 const newUserApi = require('./controller/api/newUser');
 
-
 mongoose.connect('mongodb+srv://admin:admin@cluster0.gxzxfor.mongodb.net/dlKioskEJS');
 
 const PORT = 9777;
@@ -29,6 +30,9 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', "ejs")
+app.use(expressSession({
+    secret: "keyboard cat"
+}))
 
 // Handlers
 app.get('/', homeController);                                   // Entry point
