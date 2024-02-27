@@ -21,6 +21,10 @@ const adminCreateAppointment = require('./controller/adminCreateAppointment');
 
 // APIs
 const newUserApi = require('./controller/api/newUser');
+const loginApi = require('./controller/api/loginUser');
+
+// Middleware(s)
+const authMiddleware = require('./middleware/authMiddleware');
 
 mongoose.connect('mongodb+srv://admin:admin@cluster0.gxzxfor.mongodb.net/dlKioskEJS');
 
@@ -31,7 +35,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', "ejs")
 app.use(expressSession({
-    secret: "keyboard cat"
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
 }))
 
 // Handlers
@@ -41,8 +47,8 @@ app.get('/auth/login', loginController);
 app.get('/auth/logout', logoutController);
 app.get('/licences/services', servicesController);
 
-app.get('/user/bookAppointment', bookAppointment);              // User
-app.get('/user/driverDetails', driverDetails);                  // User
+app.get('/user/bookAppointment', authMiddleware, bookAppointment);              // User
+app.get('/user/driverDetails', authMiddleware, driverDetails);                  // User
 
 app.get('/examiner/home', examinerHomeController);              // Examiner
 app.get('/examiner/evaluation', examinerEvaluationController);  // Examiner
@@ -53,6 +59,7 @@ app.get('/admin/createAppointment', adminCreateAppointment);    // Admin
 
 // APIs
 app.post('/user/register', newUserApi);
+app.post('/user/login', loginApi);
 
 // Page Not Found 
 app.use((req, res) => res.render('notfound'));  // NOT found page should always be at the end of handlers and APIs
