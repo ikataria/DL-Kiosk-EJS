@@ -1,3 +1,5 @@
 module.exports = (req, res) => {
-    res.redirect('/');
+    req.session.destroy(() => {
+        res.redirect('/auth/login');
+    });
 }

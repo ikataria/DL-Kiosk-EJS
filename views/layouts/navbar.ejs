@@ -1,8 +1,23 @@
 <header class="header">
     <section class="header__logo">
-      <a href="/">
-        <img src="/assets/img/drivetest-main-logo.png" alt="Logo" width="791" height="182">    <!-- Logo -->
-      </a>
+      <% if(!userLoggedIn && !examinerLoggedIn && !adminLoggedIn ){ %>
+        <a href="/">
+          <img src="/assets/img/drivetest-main-logo.png" alt="Logo" width="791" height="182">    <!-- Logo -->
+        </a>
+      <% } else if(adminLoggedIn){ %>
+        <a href="/admin/home">
+          <img src="/assets/img/drivetest-main-logo.png" alt="Logo" width="791" height="182">    <!-- Logo -->
+        </a>
+      <% } else if(examinerLoggedIn) { %>
+        <a href="/examiner/home">
+          <img src="/assets/img/drivetest-main-logo.png" alt="Logo" width="791" height="182">    <!-- Logo -->
+        </a>
+      <% } else if(userLoggedIn) { %>
+        <a href="/">
+          <img src="/assets/img/drivetest-main-logo.png" alt="Logo" width="791" height="182">    <!-- Logo -->
+        </a>
+      <% } %>
+
       <button class="menu-button">
           <div class="menu-icon"></div>
       </button>
@@ -10,16 +25,29 @@
     
     <nav class="header__nav">
       <ul class="header__ul">
+        <% if(!userLoggedIn && !examinerLoggedIn && !adminLoggedIn ){ %>
           <li><a href="/licences/services">Services</a></li>
+          <li><a href="/auth/login">Login</a></li>
+        <% } else if(adminLoggedIn){ %>
+          <!-- <li><a href="/admin/home">Home</a></li>                       Admin Panel -->
           <li><a href="/admin/createAppointment">Create Appointment</a></li>  <!-- Admin Panel -->
-          <li><a href="/admin/home">Admin-Home</a></li>                       <!-- Admin Panel -->
-          <li><a href="./adminDriversList.html">Admin-Drivers List</a></li>   <!-- Admin Panel -->
+          <li><a href="./adminDriversList.html">Drivers List</a></li>   <!-- Admin Panel -->
+
+          <li><a href="/auth/logout">Logout</a></li>
+
+        <% } else if(examinerLoggedIn) { %>
+          <!-- <li><a href="/examiner/home">Examiner-Home</a></li>                 Examiner Panel -->
+          <li><a href="/examiner/evaluation">Examiner</a></li>                <!-- Examiner Panel -->
+      
+          <li><a href="/auth/logout">Logout</a></li>
+          
+        <% } else if(userLoggedIn) { %>
           <li><a href="/user/bookAppointment">Book Appointment</a></li>       <!-- Driver Panel -->
           <li><a href="/user/driverDetails">Driver Details</a></li>           <!-- Driver Panel -->
-          <li><a href="/examiner/home">Examiner-Home</a></li>                 <!-- Examiner Panel -->
-          <li><a href="/examiner/evaluation">Examiner</a></li>                <!-- Examiner Panel -->
-          <li><a href="/auth/login">Login</a></li>
           <li><a href="/auth/logout">Logout</a></li>
+
+        <% } %>
+
       </ul>
     </nav>
   </header>

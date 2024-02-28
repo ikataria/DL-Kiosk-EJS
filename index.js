@@ -24,11 +24,18 @@ const newUserApi = require('./controller/api/newUser');
 const loginApi = require('./controller/api/loginUser');
 
 // Middleware(s)
-const authMiddleware = require('./middleware/authMiddleware');
+const userAuthMiddleware = require('./middleware/userAuthMiddleware');
+const examinerAuthMiddleware = require('./middleware/examinerAuthMiddleware');
+const adminAuthMiddleware = require('./middleware/adminAuthMiddleware');
+const redirectIfAuthenticated = require('./middleware/redirectIfAuthenticated');
 
 mongoose.connect('mongodb+srv://admin:admin@cluster0.gxzxfor.mongodb.net/dlKioskEJS');
 
 const PORT = 9777;
+
+global.userLoggedIn = null;
+global.examinerLoggedIn = null;
+global.adminLoggedIn = null;
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -38,28 +45,34 @@ app.use(expressSession({
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: true,
-}))
+}));
+
+app.use("*", (req, res, next) => {
+    userLoggedIn = req.session.userId;
+    examinerLoggedIn = req.session.examinerId;
+    adminLoggedIn = req.session.adminId;
+    next();
+});
 
 // Handlers
 app.get('/', homeController);                                   // Entry point
-app.get('/auth/register', newUserController);
-app.get('/auth/login', loginController);
+app.get('/auth/register', redirectIfAuthenticated, newUserController);
+app.get('/auth/login', redirectIfAuthenticated, loginController);
 app.get('/auth/logout', logoutController);
 app.get('/licences/services', servicesController);
 
-app.get('/user/bookAppointment', authMiddleware, bookAppointment);              // User
-app.get('/user/driverDetails', authMiddleware, driverDetails);                  // User
+app.get('/user/bookAppointment', userAuthMiddleware, bookAppointment);              // User
+app.get('/user/driverDetails', userAuthMiddleware, driverDetails);                  // User
 
-app.get('/examiner/home', examinerHomeController);              // Examiner
-app.get('/examiner/evaluation', examinerEvaluationController);  // Examiner
+app.get('/examiner/home', examinerAuthMiddleware, examinerHomeController);              // Examiner
+app.get('/examiner/evaluation', examinerAuthMiddleware, examinerEvaluationController);  // Examiner
 
-app.get('/admin/home', adminHomeController);                    // Admin
-app.get('/admin/createAppointment', adminCreateAppointment);    // Admin
-
+app.get('/admin/home', adminAuthMiddleware, adminHomeController);                    // Admin
+app.get('/admin/createAppointment', adminAuthMiddleware, adminCreateAppointment);    // Admin
 
 // APIs
-app.post('/user/register', newUserApi);
-app.post('/user/login', loginApi);
+app.post('/user/register', redirectIfAuthenticated, newUserApi);
+app.post('/user/login', redirectIfAuthenticated, loginApi);
 
 // Page Not Found 
 app.use((req, res) => res.render('notfound'));  // NOT found page should always be at the end of handlers and APIs

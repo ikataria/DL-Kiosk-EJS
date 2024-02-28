@@ -12,8 +12,10 @@ module.exports = async (req, res) => {
                 console.log('User not registered, please sign up first.');
             }else{
                 if(userData.userType === 'admin'){
+                    req.session.adminId = userData._id
                     res.redirect('/admin/home');
                 }else if(userData.userType === 'examiner'){
+                    req.session.examinerId = userData._id
                     res.redirect('/examiner/home');
                 }else{
                     req.session.userId = userData._id
