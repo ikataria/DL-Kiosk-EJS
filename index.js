@@ -26,6 +26,8 @@ const newUserApi = require('./controller/api/newUser');
 const loginApi = require('./controller/api/loginUser');
 const bookAppointmentApi = require('./controller/api/bookAppointment');
 const createAppointmentApi = require('./controller/api/createAppointment');
+const fetchDriverDetails = require('./controller/api/fetchDriverDetails');
+const updateDriverDetails = require('./controller/api/updateDriverDetails');
 
 // Middleware(s)
 const userAuthMiddleware = require('./middleware/userAuthMiddleware');
@@ -60,27 +62,29 @@ app.use("*", (req, res, next) => {
 });
 
 // Handlers
-app.get('/', homeController);                                   // Entry point
+app.get('/', homeController);                                                           // Entry point
 app.get('/auth/register', redirectIfAuthenticated, newUserController);
 app.get('/auth/login', redirectIfAuthenticated, loginController);
 app.get('/auth/logout', logoutController);
 app.get('/licences/services', servicesController);
 
-app.get('/user/bookAppointment', userAuthMiddleware, bookAppointment);              // User
-app.get('/user/driverDetails', userAuthMiddleware, driverDetails);                  // User
+app.get('/user/bookAppointment', userAuthMiddleware, bookAppointment);                  // User
+app.get('/user/driverDetails', userAuthMiddleware, driverDetails);                      // User
 
 app.get('/examiner/home', examinerAuthMiddleware, examinerHomeController);              // Examiner
 app.get('/examiner/evaluation', examinerAuthMiddleware, examinerEvaluationController);  // Examiner
 
-app.get('/admin/home', adminAuthMiddleware, adminHomeController);                    // Admin
-app.get('/admin/createAppointment', adminAuthMiddleware, adminCreateAppointment);    // Admin
-app.get('/admin/driversList', adminAuthMiddleware, adminDriversList);    // Admin
+app.get('/admin/home', adminAuthMiddleware, adminHomeController);                       // Admin
+app.get('/admin/createAppointment', adminAuthMiddleware, adminCreateAppointment);       // Admin
+app.get('/admin/driversList', adminAuthMiddleware, adminDriversList);                   // Admin
 
 // APIs
 app.post('/user/register', redirectIfAuthenticated, newUserApi);
 app.post('/user/login', redirectIfAuthenticated, loginApi);
 app.post('/user/bookAppointment', bookAppointmentApi);
-app.post('/admin/createAppointment', createAppointmentApi)
+app.post('/user/updateDriverDetails', updateDriverDetails);
+
+app.post('/admin/createAppointment', createAppointmentApi);
 
 // Page Not Found 
 app.use((req, res) => res.render('notfound'));  // NOT found page should always be at the end of handlers and APIs
