@@ -2,28 +2,27 @@ const User = require('../../model/User');
 
 module.exports = async (req, res) => {
     try{
-        console.log(req.body);
-        if(req.body.password !== req.body.confirmPassword){
-            throw new Error('Password mismatch');
+        if(req.body.password.trim() !== req.body.confirmPassword.trim()){
+            req.flash("validationErrors", 'Password mismatch');
+            return res.redirect('/auth/register');
         }else{
-            console.log("Pwd match");
-            const userNameExits = await User.findOne({userName: req.body.userName});
-            if(userNameExits){
-                res.redirect('/auth/login');
-                console.log('User already registered, please login.');
-                return
+            const userNameExists = await User.findOne({userName: req.body.userName.trim()});
+            if(userNameExists){
+                req.flash("validationErrors", 'User already registered, please login.');
+                return res.redirect('/auth/login');
             }
 
             await User({
-                userName: req.body.userName,
-                password: req.body.password,
-                userType: req.body.userType
+                userName: req.body.userName.trim(),
+                password: req.body.password.trim(),
+                userType: req.body.userType.trim()
             }).save()
 
             res.redirect('/auth/login');
         }
     }catch(err){
-        console.log(err);
+        console.log(__filename,err);
+        req.flash("validationErrors", "Something went wrong, please try again later");
         res.redirect('/auth/register');
     }
     

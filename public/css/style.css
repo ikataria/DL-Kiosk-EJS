@@ -67,6 +67,19 @@ img {
     text-align: center;
 }
 
+.errorMsg {
+    background-color: rgba(255, 0, 0, 0.395);
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.fullwidth{
+    width: 100%
+}
+
 /* || LINKS, PARA, HEADINGS*/
 a:any-link{
     text-decoration: none;
@@ -204,11 +217,16 @@ h3, p{
 }
 
 .main__vehicles__types{
+    padding: 1rem;
+}
+
+.main__vehicles__types_link{
     display: flex;
     flex-flow: column wrap;
     align-items: center;
     padding: 1rem;
 }
+
 
 .main__vehicles__types img{
     width: 55%;
@@ -308,10 +326,6 @@ h3, p{
     padding-bottom: var(--CONTAINER-PADDING-SMALLSCREEN);
 }
 
-.main__admin_appointment_section{
-    /* width: 100%; */
-}
-
 .main__admin_appointment__form{
     display: flex;
     flex-flow: column nowrap;
@@ -330,17 +344,46 @@ h3, p{
     width: 100%;
 }
 
-.slots{
-    padding-bottom: 1rem;
+.slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+    justify-content: center;
 }
-.slots__button{
-    border-radius: 10px;
-    padding: .5rem;
-    font-size: 0.7rem;
-    color: var(--BUTTON-BG-COLOR);
-    background-color:  var(--FORM-TEXT-COLOR);
-    font-weight: 300;
-    margin: 2px;
+
+.slots__button {
+position: relative;
+appearance: none;
+flex-basis: auto;
+width: 50px;
+height: 40px;
+border: 2px solid #003479;
+background-color: transparent;
+border-radius: 10px;
+color: rgb(0, 0, 0);
+font-size: 16px;
+text-align: center;
+}
+
+.slots__button:hover {
+background-color: #003479;
+border-color: #003479;
+color: white;
+}
+
+.slots__button:checked {
+background-color: #003479;
+border-color: #003479;
+color: white;
+}
+
+.slots__button::before {
+content: attr(data-time);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
 }
 
 /* FORMs */
@@ -386,6 +429,7 @@ h3, p{
 
 .form h3{
     color: var(--FORM-HEADING-COLOR);
+    /* text-shadow: 2px 2px 5px rgb(255, 255, 255); */
     text-shadow: 2px 2px 5px rgb(255, 255, 255);
     font-size: 1.5rem;
     padding: 1rem;
@@ -395,6 +439,7 @@ h3, p{
 .form__p{
     color: var(--FORM-TEXT-COLOR);
     text-shadow: 2px 2px 5px rgb(43, 74, 105);
+    margin-bottom: 20px;
 }
 
 .form__p a{
@@ -405,6 +450,13 @@ h3, p{
 .form__p a:hover{
     color: rgb(255, 0, 21);
     text-decoration: none;
+}
+
+.form__p_dropdown{
+    width: 100%;
+    border-radius: 5px;    
+    padding: 10px;
+    font-size: 1rem;
 }
 
 
@@ -454,13 +506,6 @@ h3, p{
 
 
 /* || MEDIA QUERIES */
-@media only screen and (max-width: 767px) {
-    /* || FOOTER */
-    .footer{
-        display: none;
-        /* border: 2px solid rgb(0, 234, 255); */
-    }
-}
 
 @media only screen and (min-width: 768px) {
     /* || MAIN */
@@ -487,52 +532,39 @@ h3, p{
         width: 45%;
     }
 
-  /* Create Appointments styling */
-.main__admin{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-}
+    /* Create Appointments styling */
+    .main__admin{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
 
-.main__admin_taskHeading{
-    font-size: var(--FORM-LABEL-SIZE);
-    width: 40%;
-}
+    .main__admin_taskHeading{
+        font-size: var(--FORM-LABEL-SIZE);
+        width: 40%;
+    }
 
-.main__admin_appointment{
-    width: 50%;
-}
+    .main__admin_appointment{
+        width: 50%;
+    }
 
-.main__admin_appointment__form{
-    display: flex;
-    flex-flow: column nowrap;
-    padding: 0 var(--CONTAINER-PADDING-SIDES);
-    align-items: stretch;
-    width: 100%;
-}
+    .main__admin_appointment__form{
+        display: flex;
+        flex-flow: column nowrap;
+        padding: 0 var(--CONTAINER-PADDING-SIDES);
+        align-items: stretch;
+        width: 100%;
+    }
 
-.main__admin_appointment p{
-    padding-bottom: var(--CONTAINER-PADDING-TB);
-}
+    .main__admin_appointment p{
+        padding-bottom: var(--CONTAINER-PADDING-TB);
+    }
 
-.main__admin_appointment_calender{
-    padding: 10px;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.slots{
-    padding-bottom: 1rem;
-}
-.slots__button{
-    border-radius: 10px;
-    padding: .5rem;
-    font-size: 0.7rem;
-    color: var(--BUTTON-BG-COLOR);
-    background-color:  var(--FORM-TEXT-COLOR);
-    font-weight: 300;
-    margin: 2px;
-}
+    .main__admin_appointment_calender{
+        padding: 10px;
+        border-radius: 5px;
+        width: 100%;
+    }
 
 
     /* || FOOTER */
@@ -541,3 +573,30 @@ h3, p{
         padding-bottom: 0.2rem;
     }
 }
+
+@media only screen and (max-width: 767px) {
+    .slots__button {
+        max-width: calc(40% - 5px);
+      }
+
+    /* || FOOTER */
+    .footer{
+        display: none;
+        /* border: 2px solid rgb(0, 234, 255); */
+    }
+}
+
+@media (max-width: 500px) {
+    .slots__button {
+        max-width: calc(50% - 5px);
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 350px) {
+    .slots__button {
+      max-width: calc(100% - 5px);
+      font-size: 10px;
+    }
+}
+

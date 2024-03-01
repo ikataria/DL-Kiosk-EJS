@@ -17,6 +17,13 @@
         <article class="main__hero">
           <section class="form darkShadeOnHero">
             <h3>Login</h3>
+            <% if(errors.length > 0){ %>
+              <ul class="errorMsg">
+                <% for(let i = 0; i < errors.length; i++) { %>
+                  <li><%= errors[i] %></li>
+                <% } %>
+              </ul>
+            <% } %>
             <form action="/user/login" class="form__login" method="post">
               <p class="form__p">
                 <label class="form__label" for="userName">User Name</label>

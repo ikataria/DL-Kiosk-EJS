@@ -7,7 +7,11 @@ const AppointmentSchema = new Schema({
     isTimeSlotAvailable: {
         type: Boolean,
         default: true
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 })
 
-module.exports = monogoose.model('Appointment', AppointmentSchema)
+module.exports = mongoose.model('Appointment', AppointmentSchema)

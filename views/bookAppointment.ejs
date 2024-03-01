@@ -18,51 +18,90 @@
         <article class="main__noBgForm">
           <section class="form">
             <h3>Book Appointment</h3>
-            <form action="https://httpbin.org/post" class="form__login">
+            <% if(errors != null && errors.length > 0){ %>
+              <ul class="errorMsg">
+                <% for(let i = 0; i < errors.length; i++) { %>
+                  <li><%= errors[i] %></li>
+                <% } %>
+              </ul>
+            <% }%>
+
+            <form action="/user/bookAppointment" class="form__login" method="post">
               <div class="main__noBgForm_column">
                 <p class="form__p main__noBgForm_column_child">
-                  <label class="form__label" for="fName">First Name</label>
-                  <input class="form__input" type="text" name="fName" placeholder="Your First Name">
+                  <label class="form__label" for="firstName">First Name</label>
+                  <input class="form__input" type="text" name="firstName" placeholder="Your First Name" value="<%=firstName %>">
                 </p>
                 <p class="form__p main__noBgForm_column_child">
-                  <label class="form__label" for="lName">Last Name</label>
-                  <input class="form__input" type="text" name="lName" placeholder="Your Last Name">
+                  <label class="form__label" for="lastName">Last Name</label>
+                  <input class="form__input" type="text" name="lastName" placeholder="Your Last Name" value="<%=lastName %>">
                 </p>
               </div>
               <div class="main__noBgForm_column">
                 <p class="form__p main__noBgForm_column_child">
-                  <label class="form__label" for="licenceNum">Licence Number</label>
-                  <input class="form__input" type="text" name="licenceNum" placeholder="Your Licence Number">
+                  <label class="form__label" for="licenceNumber">Licence Number</label>
+                  <input class="form__input" type="text" name="licenceNumber" placeholder="Your Licence Number" value="<%= licenceNumber %>">
                 </p>
                 <p class="form__p main__noBgForm_column_child">
-                  <label class="form__label" for="age">Age</label>
-                  <input class="form__input" type="date" name="age" placeholder="Your Age">
+                  <label class="form__label" for="dob">Date of Birth</label>
+                  <input class="form__input" type="date" name="dob" placeholder="Your Date of Birth" value="<%= dob %>">
                 </p>
               </div>
               <div class="main__noBgForm_column">
                 <p class="form__p main__noBgForm_column_child">
-                  <label class="form__label" for="vehicleMaker">Vehicle Maker</label>
-                  <input class="form__input" type="text" name="vehicleMaker" placeholder="Vehicle Maker">
+                  <label class="form__label" for="make">Vehicle Maker</label>
+                  <input class="form__input" type="text" name="make" placeholder="Vehicle Maker" value="<%= make %>">
                 </p>
                 <p class="form__p main__noBgForm_column_child">
-                  <label class="form__label" for="vehicleModel">Vehicle Model</label>
-                  <input class="form__input" type="text" name="vehicleModel" placeholder="Vehicle Model">
+                  <label class="form__label" for="model">Vehicle Model</label>
+                  <input class="form__input" type="text" name="model" placeholder="Vehicle Model" value="<%= model %>">
                 </p>
               </div>
               <div class="main__noBgForm_column">
                 <p class="form__p main__noBgForm_column_child">
-                  <label class="form__label" for="makeYear">Make Year</label>
-                  <input class="form__input" type="date" name="makeYear" placeholder="Make Year">
+                  <label class="form__label" for="year">Make Year</label>
+                  <input class="form__input" type="date" name="year" placeholder="Make Year" value="<%= year %>">
                 </p>
                 <p class="form__p main__noBgForm_column_child">
-                  <label class="form__label" for="vehiclePlateNum">Vehicle Plate Number</label>
-                  <input class="form__input" type="text" name="vehiclePlateNum" placeholder="Vehicle Plate Number">
+                  <label class="form__label" for="plateNumber">Vehicle Plate Number</label>
+                  <input class="form__input" type="text" name="plateNumber" placeholder="Vehicle Plate Number" value="<%= plateNumber %>">
                 </p>
               </div>
-              <p class="form__p">
-                <label class="form__label" for="appointmentDate">Appointment Date</label>
-                <input class="form__input" type="date" name="appointmentDate" placeholder="Appointment Date">
-              </p>
+              <div class="main__noBgForm_column">
+                <p class="form__p main__noBgForm_column_child">
+                  <label class="form__label" for="appointmentDate">Appointment Date</label>
+                  <input class="form__input" type="date" name="appointmentDate" placeholder="Appointment Date" value="<%= appointmentDate %>">
+                </p>
+                <p class="form__p main__noBgForm_column_child">
+                  <label class="form__label" for="examClass">Exam Class</label><br>
+                  <select name="examClass" id="examClass" class="main__driversEvaluation_examClass_dd containerHover" required style="border-radius: 10px; padding: 10px 0; width: 100%;">
+                    <option value="" disabled selected hidden>Select Exam Class</option>
+                    <option value="g2">G2</option>
+                    <option value="g">G</option>
+                  </select>
+                </p>
+              </div>
+              
+              
+              <div class="slots" >
+                <input class="slots__button" type="radio" name="appointmentTime" id="time0900" value="09:00" data-time="09:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time0930" value="09:30" data-time="09:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1000" value="10:00" data-time="10:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1030" value="10:30" data-time="10:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1100" value="11:00" data-time="11:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1130" value="11:30" data-time="11:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1200" value="12:00" data-time="12:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1230" value="12:30" data-time="12:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1300" value="13:00" data-time="13:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1330" value="13:30" data-time="13:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1400" value="14:00" data-time="14:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1430" value="14:30" data-time="14:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1500" value="15:00" data-time="15:00" />
+              
+              </div>
+
+
+
               <button class="form__button" type="submit">Save Details</button>
             </form>
           </section>

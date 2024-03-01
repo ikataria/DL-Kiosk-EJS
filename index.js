@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const expressSession = require('express-session');
 const ejs = require('ejs');
+const flash = require('connect-flash')
 
 const app = express();
 
@@ -18,10 +19,13 @@ const examinerHomeController = require('./controller/examinerHomeController');
 const examinerEvaluationController = require('./controller/examinerEvaluationController');
 const adminHomeController = require('./controller/adminHomeController');
 const adminCreateAppointment = require('./controller/adminCreateAppointment');
+const adminDriversList = require('./controller/adminDriversList');
 
 // APIs
 const newUserApi = require('./controller/api/newUser');
 const loginApi = require('./controller/api/loginUser');
+const bookAppointmentApi = require('./controller/api/bookAppointment');
+const createAppointmentApi = require('./controller/api/createAppointment');
 
 // Middleware(s)
 const userAuthMiddleware = require('./middleware/userAuthMiddleware');
@@ -40,7 +44,8 @@ global.adminLoggedIn = null;
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.set('view engine', "ejs")
+app.set('view engine', "ejs");
+app.use(flash());
 app.use(expressSession({
     secret: "keyboard cat",
     resave: false,
@@ -69,10 +74,13 @@ app.get('/examiner/evaluation', examinerAuthMiddleware, examinerEvaluationContro
 
 app.get('/admin/home', adminAuthMiddleware, adminHomeController);                    // Admin
 app.get('/admin/createAppointment', adminAuthMiddleware, adminCreateAppointment);    // Admin
+app.get('/admin/driversList', adminAuthMiddleware, adminDriversList);    // Admin
 
 // APIs
 app.post('/user/register', redirectIfAuthenticated, newUserApi);
 app.post('/user/login', redirectIfAuthenticated, loginApi);
+app.post('/user/bookAppointment', bookAppointmentApi);
+app.post('/admin/createAppointment', createAppointmentApi)
 
 // Page Not Found 
 app.use((req, res) => res.render('notfound'));  // NOT found page should always be at the end of handlers and APIs

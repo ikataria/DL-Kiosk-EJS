@@ -18,26 +18,33 @@
         <article class="main__admin containerPaddingAllSides">
           <section class="main__admin_taskHeading centerText">
             <h3>Appointment Page</h3>
+            <% if(errors != null && errors.length > 0){ %>
+              <ul class="errorMsg">
+                <% for(let i = 0; i < errors.length; i++) { %>
+                  <li><%= errors[i] %></li>
+                <% } %>
+              </ul>
+            <% }%>
           </section>
           <section class="main__admin_appointment">
-            <form class="main__admin_appointment__form" action="">
+            <form class="main__admin_appointment__form" action="/admin/createAppointment" method="post">
               <p>
                 <input class="main__admin_appointment_calender containerHover" type="date" name="appointmentDate" required>
               </p>
               <div class="slots" hidden>
-                <button class="slots__button" name="appointmenttime" id="slot1" value="09:00">09:00</button>
-                <button class="slots__button" name="appointmenttime" id="slot1" value="09:30">09:30</button>
-                <button class="slots__button" name="appointmenttime" id="slot2" value="10:00">10:00</button>
-                <button class="slots__button" name="appointmenttime" id="slot2" value="10:30">10:30</button>
-                <button class="slots__button" name="appointmenttime" id="slot3" value="11:00">11:00</button>
-                <button class="slots__button" name="appointmenttime" id="slot3" value="11:30">11:30</button>
-                <button class="slots__button" name="appointmenttime" id="slot4" value="12:00">12:00</button>
-                <button class="slots__button" name="appointmenttime" id="slot4" value="12:30">12:30</button>
-                <button class="slots__button" name="appointmenttime" id="slot5" value="01:00">01:00</button>
-                <button class="slots__button" name="appointmenttime" id="slot5" value="01:30">01:30</button>
-                <button class="slots__button" name="appointmenttime" id="slot6" value="02:00">02:00</button>
-                <button class="slots__button" name="appointmenttime" id="slot6" value="02:30">02:30</button>
-                <button class="slots__button" name="appointmenttime" id="slot7" value="03:00">03:00</button>
+                <input class="slots__button" type="radio" name="appointmentTime" id="time0900" value="09:00" data-time="09:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time0930" value="09:30" data-time="09:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1000" value="10:00" data-time="10:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1030" value="10:30" data-time="10:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1100" value="11:00" data-time="11:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1130" value="11:30" data-time="11:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1200" value="12:00" data-time="12:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1230" value="12:30" data-time="12:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1300" value="13:00" data-time="13:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1330" value="13:30" data-time="13:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1400" value="14:00" data-time="14:00" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1430" value="14:30" data-time="14:30" />
+                <input class="slots__button" type="radio" name="appointmentTime" id="time1500" value="15:00" data-time="15:00" />
               </div>
               <button class="form__button" type="submit">Create Slot(s)</button>
             </form>

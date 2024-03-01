@@ -8,12 +8,19 @@ const UserSchema = new Schema({
         unique: true
     },
     email:String,
-    firstName: String,
-    lastName: String,
     password: String,
     userType: String,
-    examClass: String,
+    firstName: String,
+    lastName: String,
     licenceNumber: String,
+    dob: Date,
+    carDetails:{
+        make: String,
+        model: String,
+        year: Date,
+        plateNumber: String
+    },
+    examClass: String,
     isPassed: {
         type: Boolean,
         default: false
@@ -22,12 +29,6 @@ const UserSchema = new Schema({
     appointmentId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Appointment'
-    },
-    carDetails:{
-        make: String,
-        model: String,
-        year: Number,
-        plateNumber: String
     },
 
 })
