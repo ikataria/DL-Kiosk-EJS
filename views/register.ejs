@@ -16,7 +16,7 @@
       </article>
         <article class="main__hero">
           <section class="form darkShadeOnHero">
-            <h3>Register</h3>
+            <h3 class="form_drk_bg_h3">Register</h3>
             <% if(errors != null && errors.length > 0){ %>
               <ul class="errorMsg">
                 <% for(let i = 0; i < errors.length; i++) { %>
@@ -27,19 +27,19 @@
 
 
             <form action="/user/register" method="post" class="form__login">
-              <p class="form__p">
+              <p class="form__p_drk_bg">
                 <label class="form__label" for="userName">User Name</label>
                 <input class="form__input" type="text" id="userName" name="userName" placeholder="User Name">
               </p>
-              <p class="form__p">
+              <p class="form__p_drk_bg">
                 <label class="form__label" for="password">Password</label>
                 <input class="form__input" type="password" name="password" placeholder="Password">
               </p>
-              <p class="form__p">
+              <p class="form__p_drk_bg">
                 <label class="form__label" for="confirmPassword">Confirm Password</label>
                 <input class="form__input" type="password" name="confirmPassword" placeholder="Re-type password ">
               </p>
-              <p class="form__p">
+              <p class="form__p_drk_bg">
                 <label class="form__label" for="userType">User Type</label>
                 <select name="userType" id="examClass" class="form__p_dropdown containerHover" required>
                   <option value="" disabled selected hidden>Select User</option>
@@ -48,11 +48,12 @@
                   <option value="admin">Admin</option>
                 </select>
               </p>
+              <br>
               <button class="form__button" type="submit">Register</button>
               <button class="form__button" type="reset">Clear</button>
             </form>
 
-            <p class="form__p">
+            <p class="form__p_drk_bg">
               <a href="/auth/login">Already registered! Login here</a>
           </p>
           </section>
