@@ -21,7 +21,11 @@ module.exports = async (req, res) => {
                         res.redirect('/examiner/home');
                     }else{
                         req.session.userId = userData._id
-                        res.redirect('/user/bookAppointment');
+                        if(userData.firstName){
+                            res.redirect('/user/driverDetails');
+                        }else{
+                            res.redirect('/user/bookAppointment');
+                        }
                     }
                 } else {
                     req.flash("validationErrors", 'Password incorrect, try again')

@@ -8,7 +8,6 @@ module.exports = async (req, res) => {
             req.flash("data", req.body)       
             return res.redirect('/user/bookAppointment');
         }else{
-            console.log(`body:`, req.body);
             const firstName = req.body.firstName.toUpperCase().trim();
             const lastName = req.body.lastName.toUpperCase().trim();
             const licenceNumber = req.body.licenceNumber.toUpperCase().trim();
@@ -21,29 +20,47 @@ module.exports = async (req, res) => {
             const examClass = req.body.examClass.toUpperCase().trim();
             const appointmentTime = req.body.appointmentTime.trim();
 
-            const updateObj = {
-                firstName,
-                lastName,
-                licenceNumber,
-                dob,
-                carDetails:{
-                    make,
-                    model,
-                    year,
-                    plateNumber
-                },
-                appointmentDate,
-                examClass,
-                appointmentTime
+            const userDataAvailable = await User.findById(req.session.userId);
+
+            console.log("userDataAvailable.firstName", userDataAvailable.firstName);
+
+            if(!userDataAvailable.firstName){
+                const slotDetails = await Appointment.findOne({$and: [{appointmentDate, appointmentTime}]});
+                if(slotDetails && slotDetails.isTimeSlotAvailable){
+                    const updateObj = {
+                        firstName,
+                        lastName,
+                        licenceNumber,
+                        dob,
+                        carDetails:{
+                            make,
+                            model,
+                            year,
+                            plateNumber
+                        },
+                        appointmentDate,
+                        examClass,
+                        appointmentTime
+                    }
+        
+                    await Appointment.findOneAndUpdate({$and: [{appointmentDate, appointmentTime}]}, {isTimeSlotAvailable: false, userId: req.session.userId})
+                    await User.findOneAndUpdate({_id: req.session.userId}, updateObj, {new: true});
+                    console.log(`Slot booked:`);
+        
+                    req.flash("validationErrors", "Slot booked successfully");
+                    res.redirect('/user/driverDetails');
+                } else {
+                    console.log(`Slot not available`);
+                    req.flash("validationErrors", "Slot not available");
+                    req.flash("data", req.body)
+                    return res.redirect('/user/bookAppointment');
+                }
+            } else {
+                console.log(`You already have a appointment booked`);
+
+                req.flash("validationErrors", "You already have a appointment booked");
+                res.redirect('/user/bookAppointment');
             }
-
-            console.log(`b4 update`);
-            await Appointment.findOneAndUpdate({$and: [{appointmentDate, appointmentTime}]}, {isTimeSlotAvailable: false, userId: req.session.userId})
-            await User.findOneAndUpdate({_id: req.session.userId}, updateObj, {new: true});
-            console.log(`Slot booked:`);
-
-            req.flash("validationErrors", "Slot booked successfully");
-            res.redirect('/user/driverDetails');
         }
     }catch(err){
         console.log(__filename,err);

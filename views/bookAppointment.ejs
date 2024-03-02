@@ -76,8 +76,8 @@
                   <label class="form__label" for="examClass">Exam Class</label><br>
                   <select name="examClass" id="examClass" class="main__driversEvaluation_examClass_dd containerHover" required style="border-radius: 10px; padding: 10px 0; width: 100%;">
                     <option value="" disabled selected hidden>Select Exam Class</option>
-                    <option value="g2">G2</option>
-                    <option value="g">G</option>
+                    <option value="<%= examClass ? examClass : 'g2' %>">G2</option>
+                    <option value="<%= examClass ? examClass : 'g' %>">G</option>
                   </select>
                 </p>
               </div>
