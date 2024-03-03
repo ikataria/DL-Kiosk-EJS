@@ -43,7 +43,9 @@ module.exports = async (req, res) => {
                         appointmentTime
                     }
         
-                    await Appointment.findOneAndUpdate({$and: [{appointmentDate, appointmentTime}]}, {isTimeSlotAvailable: false, userId: req.session.userId})
+                    const appointmentData = await Appointment.findOneAndUpdate({$and: [{appointmentDate, appointmentTime}]}, {isTimeSlotAvailable: false, userId: req.session.userId})
+                    updateObj["appointmentId"] =  appointmentData._id;
+
                     await User.findOneAndUpdate({_id: req.session.userId}, updateObj, {new: true});
                     console.log(`Slot booked:`);
         

@@ -211,7 +211,7 @@ h3, p{
 
 .main__vehicles{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
     padding: 3.5rem 3.5rem;
 }
@@ -700,8 +700,13 @@ transform: translate(-50%, -50%);
         font-weight: 700;
     }
 
-     /* || MAIN */
-     .form__button{
+    /* || MAIN */
+    .main__vehicles{
+    flex-flow: row wrap;    
+    }
+
+    /* FOOTER */
+    .form__button{
         padding: .4rem;
     }
 

@@ -84,7 +84,10 @@ app.post('/user/login', redirectIfAuthenticated, loginApi);
 app.post('/user/bookAppointment', bookAppointmentApi);
 app.post('/user/updateDriverDetails', updateDriverDetails);
 
+app.post('/driver/list', require('./controller/api/fetchAllDriversList'));
+
 app.post('/admin/createAppointment', createAppointmentApi);
+
 
 // Page Not Found 
 app.use((req, res) => res.render('notfound'));  // NOT found page should always be at the end of handlers and APIs
