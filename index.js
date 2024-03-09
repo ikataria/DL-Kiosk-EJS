@@ -87,7 +87,7 @@ app.post('/user/updateDriverDetails', updateDriverDetails);
 
 app.post('/admin/drivers/list', fetchAllDriversList.fetchDriversListAdmin);                                          // Admin
 app.post('/examiner/drivers/list', fetchAllDriversList.fetchDriversListExaminer);                                        // Admin
-app.post('/examiner/evaluatePopUp/:id', evaluateDriver)
+app.post('/examiner/evaluatePopUp', evaluateDriver)
 app.post('/admin/createAppointment', createAppointmentApi);
 
 

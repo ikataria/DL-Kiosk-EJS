@@ -60,7 +60,7 @@
                     <td class="driversList__item"><%= drivers[i].examClass  %></td>
                     <td class="driversList__item"><%= drivers[i].firstName %> &nbsp; <%= drivers[i].lastName %></td>
                     <td class="driversList__item"><%= drivers[i].carDetails.make %> &nbsp; <%= drivers[i].carDetails.model %></td>
-                    <td class="driversList__item"><%= drivers[i].carDetails.plateNumber  %></td>
+                    <td class="driversList__item"><%= drivers[i]._id %>  %></td>
                     <td class="driversList__item">
                       <% if(drivers[i].isPassed != null) { %>
                         <%= drivers[i].isPassed ? "Passed" : "Failed" %>
@@ -68,11 +68,12 @@
                           <%= "Not evaluated" %>
                       <% } %>
                       </td>
-                    <td class="driversList__item"><%= drivers[i].comment ? drivers[i].comment : "Not evaluated yet"  %></td>
+                    <td class="driversList__item"><%= drivers[i].comment ? drivers[i].comment : "Not evaluated"  %></td>
                     <td class="driversList__item">
-                      <button onclick="document.getElementById('dialogBox').style.display='block'" class="modalPopUpBtn form__button">
-                        Evaluate
-                      </button>
+                        <button onclick="openModal('<%=drivers[i]._id %>')" class="modalPopUpBtn form__button" value="<%=drivers[i]._id %>">
+                          Evaluate
+                        </button>
+                    
                     </td>
                   </tr>
                   <% } %>
@@ -82,6 +83,7 @@
           </section>
         </article>
 
+        <!-- Modal -->
         <article id="dialogBox" class="modal">
           <div class="modal__popUp">
             <span onclick="document.getElementById('dialogBox').style.display='none'" class="closeDialogBox">&times;</span>
@@ -95,6 +97,8 @@
   
                 <label for="no" style="font-weight :300;">No</label>
                 <input type="radio" name="isPassed" value="false" required>
+
+                <input type="text" name="userId" id="userId" value="" hidden>
               </p>
               <p>
                 <label for="comment" >Comment</label>
@@ -112,5 +116,16 @@
     <!-- Footer -->
     <%- include("layouts/footer") %>
 
+    <!-- Script  -->
+    <script>
+      // JavaScript to handle passing value to modal
+      function openModal(value) {
+        document.getElementById('dialogBox').style.display='block'
+        var modal = document.getElementById('dialogBox');
+        var modalValue = modal.querySelector('#userId');
+        modalValue.value = value;
+      }
+  
+    </script>
   </body>
 </html>
