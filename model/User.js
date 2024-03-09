@@ -22,8 +22,7 @@ const UserSchema = new Schema({
     },
     examClass: String,
     isPassed: {
-        type: Boolean,
-        default: false
+        type: Boolean
     },
     comment: String,
     appointmentId: {

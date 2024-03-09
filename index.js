@@ -26,9 +26,9 @@ const newUserApi = require('./controller/api/newUser');
 const loginApi = require('./controller/api/loginUser');
 const bookAppointmentApi = require('./controller/api/bookAppointment');
 const createAppointmentApi = require('./controller/api/createAppointment');
-const fetchDriverDetails = require('./controller/api/fetchDriverDetails');
 const updateDriverDetails = require('./controller/api/updateDriverDetails');
 const fetchAllDriversList = require('./controller/api/fetchAllDriversList')
+const evaluateDriver = require('./controller/api/evaluateDriver');
 
 // Middleware(s)
 const userAuthMiddleware = require('./middleware/userAuthMiddleware');
@@ -85,8 +85,9 @@ app.post('/user/login', redirectIfAuthenticated, loginApi);
 app.post('/user/bookAppointment', bookAppointmentApi);
 app.post('/user/updateDriverDetails', updateDriverDetails);
 
-app.post('/drivers/list', fetchAllDriversList);                                          // Admin
-
+app.post('/admin/drivers/list', fetchAllDriversList.fetchDriversListAdmin);                                          // Admin
+app.post('/examiner/drivers/list', fetchAllDriversList.fetchDriversListExaminer);                                        // Admin
+app.post('/examiner/evaluatePopUp/:id', evaluateDriver)
 app.post('/admin/createAppointment', createAppointmentApi);
 
 

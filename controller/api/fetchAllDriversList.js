@@ -1,32 +1,47 @@
 const User = require('../../model/User');
 
-module.exports = async (req, res) => {
-    console.log(`class:`, req.body.examClass);
+const fetchAllDrivers = async (examClass) => {
+    const query = {
+        $and: [
+            {examClass: {$regex: new RegExp(examClass, "i") }},
+            {appointmentId: {$exists: true}}
+        ] 
+    }
+
+    return await User.find(query).populate("appointmentId"); 
+}
+
+exports.fetchDriversListAdmin = async (req, res) => {
     if(!req.body.examClass){
-        console.log(`null`);
-        // return new Error('Provide exam class');
         req.flash("validationErrors", "Provide exam class");
         return res.redirect('/admin/driversList');
     } else{
-        
-        const query = {
-            $and: [
-                {examClass: {$regex: new RegExp(req.body.examClass, "i") }},
-                {appointmentId: {$exists: true}}
-            ] 
-        }
-
-        const driversList = await User.find(query).populate("appointmentId");
-        // console.log(__filename,`fetch driverslist for exam: ${req.body.examClass}:>`, driversList);
-        
+        const driversList = await fetchAllDrivers(req.body.examClass);
+   
         if(driversList.length > 0){
-            console.log('data present');
             req.flash("driversList", driversList);
             req.flash("data", driversList);
             return res.redirect('/admin/driversList');
         } else {
             req.flash("validationErrors", "No record found");
             return res.redirect('/admin/driversList');
+        }
+    }
+}
+
+exports.fetchDriversListExaminer = async (req, res) => {
+    if(!req.body.examClass){
+        req.flash("validationErrors", "Provide exam class");
+        return res.redirect('/examiner/evaluation');
+    } else{
+        const driversList = await fetchAllDrivers(req.body.examClass);
+        if(driversList.length > 0){
+            req.flash("driversList", driversList);
+            req.flash("data", driversList);
+            return res.redirect('/examiner/evaluation');
+        } else {
+            req.flash("validationErrors", "No record found");
+            return res.redirect('/examiner/evaluation');
         }
     }
 }

@@ -17,7 +17,7 @@
 
         <article class="main__driversEvaluation">
           <section>
-            <form class="main__driversEvaluation_examClass" action="/drivers/list" method="post">
+            <form class="main__driversEvaluation_examClass" action="/admin/drivers/list" method="post">
               <select name="examClass" id="examClass" class="main__driversEvaluation_examClass_dd containerHover" required>
                 <option value="noclass" disabled selected hidden>Select Exam Class</option>
                 <option value="g2">G2</option>
@@ -35,41 +35,47 @@
             </ul>
           <% } %>
 
-          <section class="main__driversEvaluation_dataList">
-            <table>
+          <section class="main__driversEvaluation_dataList driversList">
+            <table class="driversList__container">
               <thead>
                 <tr>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Exam</th>
-                  <th>Name</th>
-                  <th>Car Details</th>
-                  <th>Plate Number</th>
-                  <th>Passed</th>
-                  <th>Comment</th>
+                  <th class="driversList__header">Date</th>
+                  <th class="driversList__header">Time</th>
+                  <th class="driversList__header">Exam</th>
+                  <th class="driversList__header">Name</th>
+                  <th class="driversList__header">Car Details</th>
+                  <th class="driversList__header">Plate Number</th>
+                  <th class="driversList__header">Passed</th>
+                  <th class="driversList__header">Comment</th>
+                  <th class="driversList__header">Evaluate</th>
+
                 </tr>
               </thead>
               <% if(drivers){ %>
-                <tbody>
+                <tbody class="table_body">
                   <% for (let i = 0; i < drivers.length; i++){ %>
-                  <tr>
-                    <td><%= drivers[i].appointmentId.appointmentDate.split('T')[0]  %></td>
-                    <td><%= drivers[i].appointmentId.appointmentTime  %></td>
-                    <td><%= drivers[i].examClass  %></td>
-                    <td><%= drivers[i].firstName %> &nbsp; <%= drivers[i].lastName %></td>
-                    <td><%= drivers[i].carDetails.make %> &nbsp; <%= drivers[i].carDetails.model %></td>
-                    <td><%= drivers[i].carDetails.plateNumber  %></td>
-                    <td><%= drivers[i].isPassed  %></td>
-                    <td><%= drivers[i].comment ? drivers[i].comment : "Not evaluated yet"  %></td>                    
+                  <tr class="table_body_row">
+                    <td class="driversList__item"><%= drivers[i].appointmentId.appointmentDate.split('T')[0]  %></td>
+                    <td class="driversList__item"><%= drivers[i].appointmentId.appointmentTime  %></td>
+                    <td class="driversList__item"><%= drivers[i].examClass  %></td>
+                    <td class="driversList__item"><%= drivers[i].firstName %> &nbsp; <%= drivers[i].lastName %></td>
+                    <td class="driversList__item"><%= drivers[i].carDetails.make %> &nbsp; <%= drivers[i].carDetails.model %></td>
+                    <td class="driversList__item"><%= drivers[i].carDetails.plateNumber  %></td>
+                    <td class="driversList__item">
+                      <% if(drivers[i].isPassed != null) { %>
+                        <%= drivers[i].isPassed ? "Passed" : "Failed" %>
+                      <% } else { %>
+                          <%= "Not evaluated" %>
+                      <% } %>
+                      </td>
+                    <td class="driversList__item"><%= drivers[i].comment ? drivers[i].comment : "Not evaluated"  %></td>                
+                    <td class="driversList__item"><%= "Not Authorized"  %></td>                
 
                   </tr>
                   <% } %>
                 </tbody>
               <% } %>
             </table>
-            <ul>
-
-            </ul>
           </section>
         </article>
 
