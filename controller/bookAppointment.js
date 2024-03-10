@@ -33,6 +33,7 @@ module.exports = (req, res) => {
 
     res.render('bookAppointment', {
         errors: req.flash("validationErrors"),
+        displayMsg: req.flash("successMsg"),
         firstName,
         lastName,
         licenceNumber,

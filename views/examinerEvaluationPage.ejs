@@ -35,6 +35,15 @@
             </ul>
           <% } %>
 
+          <% if(displayMsg.length > 0){ %>
+            <ul class="successMsg">
+              <% for(let i = 0; i < displayMsg.length; i++) { %>
+                <li><%= displayMsg[i] %></li>
+              <% } %>
+            </ul>
+          <% } %>
+
+
 
           <section class="main__driversEvaluation_dataList driversList">
             <table class="driversList__container">
@@ -60,7 +69,7 @@
                     <td class="driversList__item"><%= drivers[i].examClass  %></td>
                     <td class="driversList__item"><%= drivers[i].firstName %> &nbsp; <%= drivers[i].lastName %></td>
                     <td class="driversList__item"><%= drivers[i].carDetails.make %> &nbsp; <%= drivers[i].carDetails.model %></td>
-                    <td class="driversList__item"><%= drivers[i]._id %>  %></td>
+                    <td class="driversList__item"><%= drivers[i].carDetails.plateNumber %>  %></td>
                     <td class="driversList__item">
                       <% if(drivers[i].isPassed != null) { %>
                         <%= drivers[i].isPassed ? "Passed" : "Failed" %>
@@ -73,7 +82,6 @@
                         <button onclick="openModal('<%=drivers[i]._id %>')" class="modalPopUpBtn form__button" value="<%=drivers[i]._id %>">
                           Evaluate
                         </button>
-                    
                     </td>
                   </tr>
                   <% } %>

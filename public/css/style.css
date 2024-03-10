@@ -68,7 +68,16 @@ img {
 }
 
 .errorMsg {
-    background-color: rgba(255, 0, 0, 0.395);
+    background-color: rgb(232 0 0);
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.successMsg {
+    background-color: rgb(0 150 18);
     color: rgb(255, 255, 255);
     font-size: 1rem;
     border-radius: 3px;

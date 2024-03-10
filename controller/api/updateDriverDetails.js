@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
 
             await User.findOneAndUpdate({_id: req.session.userId}, updateObj, {new: true});
 
-            req.flash("validationErrors", "Details updated");
+            req.flash("successMsg", "Details updated");
             res.redirect('/user/driverDetails');
         }
     }catch(err){

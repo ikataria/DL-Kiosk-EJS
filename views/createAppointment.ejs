@@ -25,6 +25,14 @@
                 <% } %>
               </ul>
             <% }%>
+
+            <% if(displayMsg != null && displayMsg.length > 0){ %>
+              <ul class="successMsg">
+                <% for(let i = 0; i < displayMsg.length; i++) { %>
+                  <li><%= displayMsg[i] %></li>
+                <% } %>
+              </ul>
+            <% }%>
           </section>
           <section class="main__admin_appointment">
             <form class="main__admin_appointment__form" action="/admin/createAppointment" method="post">

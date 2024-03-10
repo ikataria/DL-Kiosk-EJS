@@ -25,6 +25,15 @@
                   <% } %>
                 </ul>
               <% } %>
+
+              <% if(displayMsg.length > 0){ %>
+                <ul class="successMsg">
+                  <% for(let i = 0; i < displayMsg.length; i++) { %>
+                    <li><%= displayMsg[i] %></li>
+                  <% } %>
+                </ul>
+              <% } %>
+              
             <h3>Update Driver Details</h3>
             <form action="/user/updateDriverDetails" class="form__login" method="post">
               <div class="main__noBgForm_column">

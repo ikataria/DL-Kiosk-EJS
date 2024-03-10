@@ -21,9 +21,6 @@ module.exports = async (req, res) => {
             const appointmentTime = req.body.appointmentTime.trim();
 
             const userDataAvailable = await User.findById(req.session.userId);
-
-            console.log("userDataAvailable.firstName", userDataAvailable.firstName);
-
             if(!userDataAvailable.firstName){
                 const slotDetails = await Appointment.findOne({$and: [{appointmentDate, appointmentTime}]});
                 if(slotDetails && slotDetails.isTimeSlotAvailable){
@@ -47,19 +44,15 @@ module.exports = async (req, res) => {
                     updateObj["appointmentId"] =  appointmentData._id;
 
                     await User.findOneAndUpdate({_id: req.session.userId}, updateObj, {new: true});
-                    console.log(`Slot booked:`);
         
-                    req.flash("validationErrors", "Slot booked successfully");
+                    req.flash("successMsg", "Slot booked successfully");
                     res.redirect('/user/driverDetails');
                 } else {
-                    console.log(`Slot not available`);
                     req.flash("validationErrors", "Slot not available");
                     req.flash("data", req.body)
                     return res.redirect('/user/bookAppointment');
                 }
             } else {
-                console.log(`You already have a appointment booked`);
-
                 req.flash("validationErrors", "You already have a appointment booked");
                 res.redirect('/user/bookAppointment');
             }

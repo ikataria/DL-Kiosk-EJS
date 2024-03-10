@@ -26,6 +26,14 @@
               </ul>
             <% }%>
 
+            <% if(displayMsg != null && displayMsg.length > 0){ %>
+              <ul class="successMsg">
+                <% for(let i = 0; i < displayMsg.length; i++) { %>
+                  <li><%= displayMsg[i] %></li>
+                <% } %>
+              </ul>
+            <% }%>
+
             <form action="/user/bookAppointment" class="form__login" method="post">
               <div class="main__noBgForm_column">
                 <p class="form__p main__noBgForm_column_child">

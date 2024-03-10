@@ -3,10 +3,7 @@ const Appointment = require("../../model/Appointment");
 
 exports.fetchDriverDetailsFn = async (userId) => {
     try{
-        // console.log(__filename, `userId:`, userId);
-        // const driverDetailsObj = await User.findById(userId);
         const driverDetailsObj = await Appointment.findOne({userId}).populate("userId");
-        // console.log(`driverAppointmentDetails:`, driverDetailsObj);
 
         if(driverDetailsObj && driverDetailsObj.userId.firstName){
             return driverDetailsObj

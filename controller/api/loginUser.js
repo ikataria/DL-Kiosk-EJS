@@ -12,7 +12,6 @@ module.exports = async (req, res) => {
                 return res.redirect('/auth/register');
             }else{
                 if(userData.password === req.body.password.trim()){
-                    console.log(`pwd correct, welcome`);
                     if(userData.userType === 'admin'){
                         req.session.adminId = userData._id
                         res.redirect('/admin/home');

@@ -3,6 +3,7 @@ module.exports = (req, res) => {
         return res.redirect('/auth/login');
     }
     res.render('createAppointment', {
-        errors: req.flash("validationErrors")
+        errors: req.flash("validationErrors"),
+        displayMsg: req.flash("successMsg")
     })
 }

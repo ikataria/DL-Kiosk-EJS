@@ -1,42 +1,29 @@
-// Fields for user
-// email // - use for nodemailer
-// userName // unique ID
-// firstName
-// lastName
-// password
-// userType
-// examClass
-// licenceNumber
-// car:{
-//     make
-//     model
-//     year
-//     plateNumber
-// }
-
-// Fields for Appointment Model
-// time
-// date
-// isTimeSlotAvailable
+const User = require('./model/User');
+const Appointment = require('./model/Appointment');
 
 
-function get() {
+
+const get = new Promise(async (resolve, reject)=> {
     try {
-      console.log("Inside try");
-      throw new Error("Return error");
+      console.log(`b4 query`);
+      const deleteduser = await User.collection.drop();
+      const deletedAppointment = await Appointment.collection.drop({});
+      console.log(`after query>>>`);
+      resolve("user deleted", deleteduser);
+      resolve("Appointment deleted", deletedAppointment);
     } catch(e){
-      console.log(e);
-    //   return 20
-    } finally{
-      console.log("Inside finally");
-    //   return 30;
+      reject(e);
     }
-    
-    console.log("Outside try...catch...finally");
-    return 40;
-  }
+  })
   
-  console.log("The value is ", get());
+get
+  .then(value => {
+    console.log(value);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+
 
 
 

@@ -3,7 +3,7 @@ const User = require('../../model/User');
 const fetchAllDrivers = async (examClass) => {
     const query = {
         $and: [
-            {examClass: {$regex: new RegExp(examClass, "i") }},
+            {examClass: {$regex: new RegExp(`^${examClass}$`, "i") }},
             {appointmentId: {$exists: true}}
         ] 
     }
