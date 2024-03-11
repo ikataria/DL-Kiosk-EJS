@@ -37,9 +37,9 @@
           <section class="main__admin_appointment">
             <form class="main__admin_appointment__form" action="/admin/createAppointment" method="post">
               <p>
-                <input class="main__admin_appointment_calender containerHover" type="date" name="appointmentDate" required>
+                <input id="appointmentDate" class="main__admin_appointment_calender containerHover" type="date" name="appointmentDate" onchange="onDateChanged()" value="<%= aptDate ? aptDate.toISOString().split('T')[0] : '' %>" required>
               </p>
-              <div class="slots" hidden>
+              <div class="slots aptSlots" hidden>
                 <input class="slots__button" type="radio" name="appointmentTime" id="time0900" value="09:00" data-time="09:00" />
                 <input class="slots__button" type="radio" name="appointmentTime" id="time0930" value="09:30" data-time="09:30" />
                 <input class="slots__button" type="radio" name="appointmentTime" id="time1000" value="10:00" data-time="10:00" />
@@ -62,5 +62,34 @@
 
     <!-- Footer -->
     <%- include("layouts/footer") %>
+    
+    <!-- Script -->
+    <script>
+      function onDateChanged(){
+        // get the Date and re-render page with the slots data
+        const selectedDate = document.getElementById('appointmentDate').value;
+        console.log(`ondateChanged function called`, selectedDate);
+
+        let data = {
+          selectedDate
+        }
+        fetch('/admin/createAppointment',{
+          method: 'post',
+          headers: {
+            "Content-Type" :"application/json"
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            console.log("Data sent successfully");
+        })
+        .catch(error => {
+            console.error("There was a problem with the fetch operation:", error);
+        });
+      }
+    </script>
   </body>
 </html>

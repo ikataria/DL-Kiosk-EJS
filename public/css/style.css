@@ -352,12 +352,18 @@ h3, p{
     width: 100%;
 }
 
+
+
 .slots {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     margin-bottom: 20px;
     justify-content: center;
+}
+
+.aptSlots{
+    display: none;
 }
 
 .slots__button {
